@@ -8,7 +8,58 @@
 </head>
 <body>
 
-<%= yield %>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      <%= link_to 'Home', root_path, :class => 'navbar-brand' %>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><%= link_to('New User', new_user_path) %></li>
+          <li><%= link_to('New Cookbook', new_cookbook_path) %></li>
+          <li><%= link_to('New Recipe', new_recipe_path) %></li>
+          <li><%= link_to('Cookbooks', cookbooks_path) %></li>
+          <li><%= link_to('Recipes', recipes_path) %></li>
+          <li><%= link_to('My Profile', user_path) %></li>
+          <li><%= link_to('My Profile', user_path) %></li>
+<!--           < %== authentication_menu %>
+ -->        </ul>
+<!--         <div class="search nav navbar-nav navbar-right">
+          < % unless @authenticated.nil? %>
+            < %= form_tag '/search', :method => 'get' do %>
+              < %= text_field_tag(:query) %>
+              < %= submit_tag 'Search' %>
+            < % end %>
+          < % end %>
+        </div>
+ -->
+
+
+
+
+
+      </div><!--/.nav-collapse -->
+    </div> <!-- .container -->
+  </div>
+
+  <div class="container">
+    <% if flash[:notice].present? %>
+      <p>
+      <%= flash[:notice] %>
+      </p>
+    <% end %>
+
+    <%= yield %>
+  </div> <!-- .container -->
+
+
+
+
 
 </body>
 </html>
