@@ -17,7 +17,7 @@
 #
 
 class Recipe < ActiveRecord::Base
-  attr_accessible :amount, :duration, :image, :ingredient, :instructions, :title, :unit, :comment, :cookbook_id, :ingredient_id
+  attr_accessible :amount, :duration, :image, :ingredient, :instructions, :title, :unit, :comment, :cookbook_id, :ingredient_id, :serving_size
 
   has_and_belongs_to_many :cookbooks
   has_and_belongs_to_many :ingredients

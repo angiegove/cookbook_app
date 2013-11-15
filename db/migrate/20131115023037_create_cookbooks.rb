@@ -4,6 +4,7 @@ class CreateCookbooks < ActiveRecord::Migration
       t.string :title
       t.string :description
       t.string :image
+      t.integer :user_id
 
       t.timestamps
     end
