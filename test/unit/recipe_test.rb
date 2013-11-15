@@ -10,8 +10,10 @@
 #  ingredient   :string(255)
 #  instructions :text
 #  image        :text
+#  comment      :text
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  serving_size :integer
 #
 
 require 'test_helper'

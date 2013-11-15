@@ -11,5 +11,8 @@
 #
 
 class Cookbook < ActiveRecord::Base
-  attr_accessible :description, :image, :title
+  attr_accessible :description, :image, :title, :user_id, :recipe_id
+
+  belongs_to :user
+  has_and_belongs_to_many :recipes
 end

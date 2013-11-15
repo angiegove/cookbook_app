@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: mesurements
+#
+#  id         :integer          not null, primary key
+#  unit       :string(255)
+#  amount     :float
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  unit: MyString
+  amount: MyString
+
+two:
+  unit: MyString
+  amount: MyString
