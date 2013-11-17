@@ -1,0 +1,44 @@
+<%= form_for @recipe do |f| %>
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :duration %>
+    <%= f.text_field :duration %>
+  </p>
+  <p>
+    <%= f.label :serving_size %>
+    <%= f.text_field :serving_size %>
+  </p>
+<!--MEASUREMENTS HEEEEEEEEEELP   <p>
+    < %= f.label :amount %>
+    < %= f.text_field :amount %>
+  </p>
+  <p>
+    < %= f.label :unit %>
+    < %= f.text_field :unit %>
+  </p> -->
+  <p>
+    <%= f.label :ingredient %>
+    <%= f.text_field :ingredient %>
+  </p>
+  <p>
+    <%= f.label :instructions %>
+    <%= f.text_area :instructions %>
+  </p>
+  <p>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </p>
+  <p>
+    <%= f.label :comment %>
+    <%= f.text_area :comment %>
+  </p>
+
+
+  <%= f.submit %>
+
+<% end %>
+
+
