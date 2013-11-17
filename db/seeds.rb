@@ -1,6 +1,8 @@
+User.destroy_all
 Cookbook.destroy_all
 Recipe.destroy_all
 Ingredient.destroy_all
+Measurement.destroy_all
 
 u1 = User.create(:name => 'Bob', :email => 'b@email.com', :password => 'a')
 u2 = User.create(:name => 'Admin', :email => 'admin@email.com', :password => 'admin', :is_admin => true)
