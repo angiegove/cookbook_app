@@ -43,6 +43,7 @@
 # WISHLIST
 - in recipe _form make the duration input an interactive clock instead of text input
 - make the instructions able to be more than one paragraph.  Include button
+- duration will not be text input but instead be an interactive clock-thingy
 -
 -
 -
