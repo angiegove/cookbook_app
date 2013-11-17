@@ -38,11 +38,4 @@ class UsersController < ApplicationController
     @cookbooks = @user.cookbooks
   end
 
-
-
-
-
-
-
-
 end

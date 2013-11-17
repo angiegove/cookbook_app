@@ -1,2 +1,42 @@
 <h1>Cookbooks#new</h1>
 <p>Find me in app/views/cookbooks/new.html.erb</p>
+
+      <% if @cookbook.id.present? %>
+        <h2>Edit Your Profile</h2>
+      <% else %>
+        <h2>Become a new cookbook</h2>
+      <% end %>
+
+<!--      < % if @cookbook.errors.any? %>
+        <ol>
+          < % @cookbook.errors.full_messages.each do |msg| %>
+            <li class="alert alert-warning">< %= msg %></li>
+          < % end %>
+        </ol>
+      < % end %>
+ -->
+      <div class="new_cookbook_form">
+        <%= form_for @cookbook, :html => {:multipart => true} do |f| %>
+
+          <div class='form-group'>
+            <%= f.label :title %>
+            <%= f.text_field :title, :autofocus => true, :class => 'form-control' %>
+          </div>
+          <div class='form-group'>
+            <%= f.label :description %>
+            <%= f.text_field :description, :class => 'form-control' %>
+          </div>
+
+          <div class="cookbook_edit_img"><%= image_tag @cookbook.image_url if @cookbook.image? %></div>
+
+          <div class='form-group'>
+            <%= f.label :image %>
+            <%= f.file_field :image %>
+          </div>
+        <!--   <div class='form-group'>
+            < %= f.label :remote_image_url, "Or Picture Url" %>
+            < %= f.text_field :remote_image_url, :class => 'form-control' %>
+          </div> -->
+          <%= f.submit %>
+        </div>
+      <% end %>
