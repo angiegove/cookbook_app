@@ -3,7 +3,7 @@ module ApplicationHelper
 
     links = ""
     if @user_auth.present?
-      if false # @user_authenticated.is_admin
+      if false # @user_auth.is_admin
         links += "<li>#{link_to('Show Users', users_path)}</li>"
       end
       links += "<li>#{link_to("#{@user_auth.name}", user_path(@user_auth))}</li>"
