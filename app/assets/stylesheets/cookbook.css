@@ -1,5 +1,32 @@
 body {
-  margin-top: 20px;
-  margin: auto;
+  margin-top: 25px;
   padding: 1em;
 }
+
+
+/*******************************************
+                NAV
+*******************************************/
+.navbar {
+  background-color: rgba(6, 14, 69, 1);
+}
+
+.navbar > .container .navbar-brand {
+  color: rgba(214, 151, 18, 1);
+  font-size: 2em;
+}
+
+.navbar > .container .navbar-brand:hover{
+  text-shadow: 0 0 15px rgba(200, 200, 200, 1);
+  color: white;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: rgba(200, 200, 200, 1);
+  font-size: 1em;
+}
+.navbar-inverse .navbar-nav > li > a:hover{
+  text-shadow: 0 0 15px rgba(200, 200, 200, 1);
+}
+
+
