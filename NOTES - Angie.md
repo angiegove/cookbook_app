@@ -1,4 +1,16 @@
-# Notes
+# TO CORINNE
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+
+# NOTES
 -
 -
 -
@@ -24,7 +36,7 @@
 -
 -
 
-# Wishlist
+# WISHLIST
 -
 -
 -
