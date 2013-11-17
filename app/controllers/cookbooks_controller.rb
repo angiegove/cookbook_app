@@ -5,14 +5,9 @@ class CookbooksController < ApplicationController
 
   def create
     @cookbook= Cookbook.new params[:cookbook]
-
-  if @user.save
-      session[:user_id] = @user.id
-      cookbook = Cookbook.create :title => 'All of my receipes', :owner_id => @user.id
-      redirect_to root_path
-    else
-      render :new
-    end
+    @cookbook.user = @user_auth
+    @cookbook.save
+    redirect_to user_path(@user_auth)
   end
 
   # def edit
