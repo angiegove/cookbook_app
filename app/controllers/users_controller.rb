@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   if @user.save
       session[:user_id] = @user.id
-      cookbook = Cookbook.create :title => 'All of my receipes', :owner_id => @user.id
+      cookbook = Cookbook.create :title => 'All of my receipes', :user_id => @user.id
       redirect_to root_path
     else
       render :new

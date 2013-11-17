@@ -2,7 +2,7 @@ Cookbook.destroy_all
 Recipe.destroy_all
 Ingredient.destroy_all
 
-u1 = User.create(:name => 'Bob', :email => 'b@email.com')
+u1 = User.create(:name => 'Bob', :email => 'b@email.com', :password => 'a')
 
 c1 = Cookbook.create(:title => 'The Joy of Cooking', :image => 'http://1.bp.blogspot.com/_Oj8-dSOGoOA/TD9TBp_BW2I/AAAAAAAAAVc/oh3I-gPCpTo/s1600/joy-of-cooking.jpg')
 c2 = Cookbook.create(:title => 'Another Cookbook')
