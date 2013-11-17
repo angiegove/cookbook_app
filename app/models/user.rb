@@ -9,13 +9,14 @@
 #  password_digest :string(255)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  is_admin        :boolean          default(FALSE)
 #
 
 class User < ActiveRecord::Base
 
   has_secure_password
 
-  attr_accessible :email, :image, :name, :password_digest, :cookbook_id, :password, :password_confirmation
+  attr_accessible :email, :image, :name, :password_digest, :cookbook_id, :password, :password_confirmation, :is_admin
 
   has_many :cookbooks
 end

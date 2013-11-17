@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: mesurements
+# Table name: measurements
 #
 #  id         :integer          not null, primary key
 #  unit       :string(255)
