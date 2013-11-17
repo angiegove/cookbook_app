@@ -1,2 +1,16 @@
-<h1>Cookbooks#show</h1>
-<p>Find me in app/views/cookbooks/show.html.erb</p>
+<h1>Cookbooks</h1>
+
+
+<h2><%= @cookbook.title %> </h2>
+
+<p>Description: <%= @cookbook.description %></p>
+
+
+<!-- Need to change the routes so edit so doesnt need to go to a new page, can use the new form -->
+<%= link_to 'Edit Cookbook', edit_cookbook_path %>
+<%= button_to 'Delete Cookbook', cookbook_path(@cookbook.id), :method => 'delete' %>
+
+<h2>Recipes</h2>
+<% @recipes.each do |recipe|%>
+<li><%= link_to recipe.title, recipe_path(recipe) %></li>
+<% end %>

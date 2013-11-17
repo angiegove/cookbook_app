@@ -1,0 +1,12 @@
+<h1>Cookbooks</h1>
+
+
+<% @cookbooks.each do |cookbook| %>
+  <ol>
+    <h2><%= link_to cookbook.title, cookbook_path(cookbook.id) %></h2>
+    <div><%= image_tag cookbook.image, :class => 'cookbook' %></div>
+    <ul>
+      <li>Description: <%= cookbook.description %></li>
+    </ul>
+  </ol>
+<% end %>
