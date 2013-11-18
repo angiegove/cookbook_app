@@ -17,6 +17,15 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find params[:id]
+    respond_to do |format|
+      format.html
+      format.pdf do
+        recipe = render_to_string(:action => "show.html.erb", :layout => false)
+        recipe = PDFKit.new(recipe)
+        recipe = recipe.to_pdf
+        send_data recipe, :filename => "recipe.pdf", :type => 'application/pdf'
+      end
+    end
   end
 
   def edit
