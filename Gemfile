@@ -8,6 +8,7 @@ gem 'bcrypt-ruby', '3.0.0'
 gem 'carrierwave'
 gem "fog", "~> 1.3.1" #required for carrierwave s3
 gem 'pdfkit'
+gem 'underscore-rails'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
