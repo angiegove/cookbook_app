@@ -6,8 +6,9 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    @recipe.ingredients.new
-    @recipe.ingredients.measurements.new
+    @recipe.recipe_ingredients.new
+    # @recipe.recipe_ingredients.ingredient.new
+    # @recipe.recipe_ingredients.measurement.new
   end
 
   def create

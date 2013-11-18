@@ -6,6 +6,8 @@ CookbookApp::Application.routes.draw do
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
 
+  get '/ingredients_list' => 'ingredients#list'
+
   resources :cookbooks
   resources :recipes
   resources :ingredients, :only => [:new, :create, :destroy]
