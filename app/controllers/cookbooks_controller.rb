@@ -33,6 +33,7 @@ class CookbooksController < ApplicationController
     @cookbook = Cookbook.find params[:id]
     # if @cookbook.user == @current_user || @current_user.is_admin?
       @recipes = @cookbook.recipes
+      @recipeIngredient =
 
     # else
     #   redirect_to root_path

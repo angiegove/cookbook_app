@@ -38,7 +38,7 @@ $(document).ready( function () {
     deferRequestBy: 0, //miliseconds
     noCache: false, //default is false, set to true to disable caching
     // callback function:
-    onSelect: function(value, data){ alert('You selected: ' + value + ', ' + data); },
+    onSelect: function(suggestion){ alert('You selected: ' + suggestion.value + ', ' + suggestion.data); },
   });
 // Below handles the autocomplete for adding the measurement unit in the recipe form
   var a = $('#measurement_query').autocomplete({
