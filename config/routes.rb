@@ -7,6 +7,7 @@ CookbookApp::Application.routes.draw do
   delete '/login' => 'session#destroy'
 
   get '/ingredients_list' => 'ingredients#list'
+  get '/measurements_list' => 'measurements#list'
 
   resources :cookbooks
   get '/cookbooks/:id/template' => 'cookbooks#template'

@@ -13,4 +13,8 @@ class Measurement < ActiveRecord::Base
   attr_accessible :unit
 
   has_many :recipe_ingredients
+
+  def as_json(options={})
+    {:value => self.unit, :data => self.id}
+  end
 end
