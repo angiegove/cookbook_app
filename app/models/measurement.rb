@@ -10,7 +10,7 @@
 #
 
 class Measurement < ActiveRecord::Base
-  attr_accessible :amount, :unit, :ingredient_id
+  attr_accessible :unit
 
-  has_and_belongs_to_many :ingredients
+  has_many :recipe_ingredients
 end

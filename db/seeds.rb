@@ -5,6 +5,7 @@ Cookbook.destroy_all
 Recipe.destroy_all
 Ingredient.destroy_all
 Measurement.destroy_all
+RecipeIngredient.destroy_all
 
 u1 = User.create(:name => 'Bob', :email => 'b@email.com', :password => 'a')
 u2 = User.create(:name => 'Admin', :email => 'admin@email.com', :password => 'admin', :is_admin => true)
@@ -27,35 +28,46 @@ i6 = Ingredient.create(:name => 'Butter')
   Ingredient.create!(:name => i)
 end
 
-m1 = Measurement.create(:unit => 'pound', :amount => 6)
-m2 = Measurement.create(:unit => '-', :amount => 4)
-m3 = Measurement.create(:unit => '-', :amount => 2)
-m4 = Measurement.create(:unit => 'slice', :amount => 3)
-m5 = Measurement.create(:unit => '-', :amount => 1)
-m6 = Measurement.create(:unit => 'ounce', :amount => 2)
+m1 = Measurement.create(:unit => 'pound')
+m2 = Measurement.create(:unit => 'N/A')
+m3 = Measurement.create(:unit => 'N/A')
+m4 = Measurement.create(:unit => 'slice')
+m5 = Measurement.create(:unit => 'N/A')
+m6 = Measurement.create(:unit => 'ounce')
 
 "N/A,can,box,small,medium,large,stick,pinch,dash,slice,tab,knob,handful,bottle,packet,bag,bunch,sprig,stalk,tablespoon (tbsp),teaspoons (tsp),cup,fluid ounces (fl oz),pint (pt),quart (qt),gallon (gal),ounces (oz),pound (lb),inch (in),litre (L),milliliter (ml),grams (g),kilogram (kg),centimeter (cm)".split(',').each do |u|
   Measurement.create!(:unit => u)
 end
 
+ir1 = RecipeIngredient.create(:amount => 2)
+ir2 = RecipeIngredient.create(:amount => 4)
+ir3 = RecipeIngredient.create(:amount => 6)
+ir4 = RecipeIngredient.create(:amount => 8)
+ir5 = RecipeIngredient.create(:amount => 10)
+ir6 = RecipeIngredient.create(:amount => 12)
 
+ir1.measurement = m1
+ir2.measurement = m2
+ir3.measurement = m3
+ir4.measurement = m4
+ir5.measurement = m5
+ir6.measurement = m6
+
+ir1.ingredient = i1
+ir2.ingredient = i2
+ir3.ingredient = i3
+ir4.ingredient = i4
+ir5.ingredient = i5
+ir6.ingredient = i6
 
 u1.cookbooks = [c1, c2]
 
 c1.recipes = [r1, r2]
 c2.recipes << r3
 
-r1.ingredients = [i1, i2]
-r2.ingredients = [i1, i2, i4, i5, i6]
-r3.ingredients = [i5, i6]
-
-i1.measurements << m1
-i2.measurements << m2
-i3.measurements << m3
-i4.measurements << m4
-i5.measurements << m5
-i6.measurements << m6
-
+r1.recipe_ingredients = [ir3]
+r2.recipe_ingredients = [ir1, ir2, ir4]
+r3.recipe_ingredients = [ir5, ir6]
 
 
 
