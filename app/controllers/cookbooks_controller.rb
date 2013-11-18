@@ -1,7 +1,12 @@
 class CookbooksController < ApplicationController
 
   def index
-    @cookbooks = Cookbook.all
+    if @current_user.is_admin?
+      @cookbooks = Cookbook.all
+    else
+      @cookbooks = @current_user.cookbooks
+    end
+
   end
 
   def new
@@ -10,25 +15,29 @@ class CookbooksController < ApplicationController
 
   def create
     @cookbook= Cookbook.new params[:cookbook]
-    @cookbook.user = @user_auth
+    @cookbook.user = @current_user
     @cookbook.save
-    redirect_to user_path(@user_auth)
+    redirect_to user_path(@current_user)
   end
 
   def show
     @cookbook = Cookbook.find params[:id]
-    @recipes = @cookbook.recipes
+    if @cookbook.user == @current_user || @current_user.is_admin?
+      @recipes = @cookbook.recipes
+    else
+      redirect_to root_path
+    end
   end
 
   def edit
-    @cookbook= @auth
+    @cookbook = Cookbook.find params[:id]
     render :new
   end
 
   def update
-    @cookbook= @auth
-    if @user.update_attributes params[:user]
-      redirect_to root_path(@auth)
+    @cookbook = Cookbook.find params[:id]
+    if @cookbook.update_attributes params[:cookbook]
+      redirect_to cookbooks_path
     else
       render :new
     end

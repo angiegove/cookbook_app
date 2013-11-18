@@ -16,14 +16,14 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = @auth
+    @user = @current_user
     render :new
   end
 
   def update
-    @user = @auth
+    @user = @current_user
     if @user.update_attributes params[:user]
-      redirect_to root_path(@auth)
+      redirect_to root_path(@current_user)
     else
       render :new
     end

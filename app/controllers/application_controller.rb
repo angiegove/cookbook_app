@@ -7,11 +7,11 @@ class ApplicationController < ActionController::Base
 
     def authentication
 
-      @user_auth = User.find_by_id session[:user_id] unless session[:user_id].nil?
+      @current_user = User.find_by_id session[:user_id] unless session[:user_id].nil?
 
 
       # If we didn't log anyone in, clear out the sessions so we don't try again.
-      if @user_auth.nil?
+      if @current_user.nil?
         session[:user_id] = nil
       end
     end
