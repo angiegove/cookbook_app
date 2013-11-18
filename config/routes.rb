@@ -9,6 +9,8 @@ CookbookApp::Application.routes.draw do
   get '/ingredients_list' => 'ingredients#list'
 
   resources :cookbooks
+  get '/cookbooks/:id/template' => 'cookbooks#template'
+
   resources :recipes
   resources :ingredients, :only => [:new, :create, :destroy]
   resources :users, :except => [:edit] do

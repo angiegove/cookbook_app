@@ -29,6 +29,15 @@ class CookbooksController < ApplicationController
     end
   end
 
+  def template
+    @cookbook = Cookbook.find params[:id]
+    if @cookbook.user == @current_user || @current_user.is_admin?
+      @recipes = @cookbook.recipes
+    else
+      redirect_to root_path
+    end
+  end
+
   def edit
     @cookbook = Cookbook.find params[:id]
     render :new
