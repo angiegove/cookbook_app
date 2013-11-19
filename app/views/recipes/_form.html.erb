@@ -1,4 +1,7 @@
 <%= form_for @recipe do |f| %>
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+
   <p>
     <i class="fa fa-book"></i>
     <%= f.label :title %>
@@ -15,37 +18,53 @@
     <%= f.text_field :serving_size %>
   </p>
 
-  <p><i class="fa fa-leaf"></i>Ingredients:</p>
+  <p><i class="fa fa-leaf"></i><%= f.label "Ingredients" %></p>
+
+
   <div id="recipe_ingredients_display">
     <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
       <li>
 
-        <div class="form_amount">
+        <div class="form_recipe_ingredients form_amount">
           <%= text_field_tag :amount, recipe_ingredient.amount %>
         </div>
-        <div class="form_measurement">
+        <div class="form_recipe_ingredients form_measurement">
           <%= text_field_tag :measurement_query, recipe_ingredient.measurement.unit, :class => 'measurement_edit' %>
         </div>
-        <div class="form_ingredient">
+        <div class="form_recipe_ingredients form_ingredient">
           <%= text_field_tag :ingredient_query, recipe_ingredient.ingredient.name, :class => 'ingredient_edit' %>
         </div>
       </li>
     <% end %>
   </div>
 
-  <div class="form_amount">
-    <%= label_tag :amount %>
-    <%= text_field_tag :amount %>
+  <div class="row">
+    <div class="form_recipe_ingredients">
+
+      <div class="col-sm-2 col-md-2">
+        <div class="form_amount">
+          <%= label_tag :amount %>
+          <%= text_field_tag :amount %>
+        </div>
+      </div>
+      <div class="col-sm-3 col-md-3">
+        <div class="form_measurement">
+          <%= label_tag :measurement_query, "Measurement" %>
+          <%= text_field_tag :measurement_query %>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-6">
+        <div class="form_ingredient">
+          <%= label_tag :ingredient_query, "Ingredient" %>
+          <%= text_field_tag :ingredient_query %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-1 col-md-1">
+      <button type="button" id="add_ingredient_button" class="form_recipe_ingredient_button">Add</button>
+    </div>
   </div>
-  <div class="form_measurement">
-    <%= label_tag :measurement_query, "Measurement" %>
-    <%= text_field_tag :measurement_query %>
-  </div>
-  <div class="form_ingredient">
-    <%= label_tag :ingredient_query, "Ingredient" %>
-    <%= text_field_tag :ingredient_query %>
-  </div>
-  <button type="button" id="add_ingredient_button">Add Ingredient</button>
 
   <p>
     <i class="fa fa-fire"></i>
@@ -70,6 +89,8 @@
   <%= f.submit %>
 
   <div id="secret_ingredients"></div>
+    </div>
+  </div>
 
 <% end %>
 

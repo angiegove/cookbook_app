@@ -54,23 +54,70 @@ body {
 /*******************************************
           FORM
 *******************************************/
+form p {
+  border: 2px solid black;
+  padding: 20px;
+
+}
+
 input {
-  font-size: 28px;
+  font-size: 1.8em;
   padding: 10px;
-  border: 1px solid #CCC; d
-  isplay: block;
-  margin: 20px 0;
+  border: 1px solid #CCC;
+  display: block;
+  color: rgba(8, 1, 94, 1);
+  width: 100%;
+}
+
+textarea {
+  font-size: 1.3em;
+  padding: 10px;
+  border: 1px solid #CCC;
+  display: block;
   color: rgba(8, 1, 94, 1)
 }
 
+label {
+  font-size: 1.8em;
+}
+
+/*button {
+  margin-bottom: 40px;
+}
+*/
+.fa {
+  font-size: 1.9em;
+  margin-right: 0.3em;
+}
+
+.form_recipe_ingredients {
+  width: 100%;
+  border: 2px solid black;
+  padding: 20px;
+}
+
+.form_recipe_ingredients label {
+/*  text-align: center; <----- This doesn't work but I need to make the text center within its column */
+}
+
+.form_amount {
+  width: 100%;
+}
 .form_amount input{
-  width: 30px;
+  width: 100%;
 }
 .form_measurement input{
-  width: 8em;
-}.form_ingredient input{
-  width: 10em;
+  width: 100%;
 }
+.form_ingredient input{
+  width: 100%;
+}
+
+button.form_recipe_ingredient_button {
+  width: 100px;
+  height: 100px;
+}
+
 
 /*******************************************
           AUTOCOMPLETE
