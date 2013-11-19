@@ -24,13 +24,13 @@ var add_recipe_ingredient = function (event) {
   var $ingredient = $(str);
 
   // Add the new ingredient as a hash to send to the server.
-  ingredients.push({
+  recipe_ingredient.push({
       amount: amount,
       measurement: measurement_id,
       ingredient: ingredient_id
   });
 
-  console.log(ingredients);
+  console.log(recipe_ingredient);
 
   $('#recipe_ingredients_display').append($ingredient);
 
@@ -80,8 +80,23 @@ $(document).ready( function () {
 
   $('#add_ingredient_button').click(add_recipe_ingredient);
 
-  $('#new_recipe').submit(function(event) {
 
+  $('#new_recipe').submit(function () {
+    $.each(recipe_ingredient, function (i, ingredient) {
+      var $amount = $('<input type="hidden" name="recipe_ingredients[' + i + '][amount]">');
+      var $measurement = $('<input type="hidden" name="recipe_ingredients[' + i + '][measurement_id]">');
+      var $ingredient = $('<input type="hidden" name="recipe_ingredients[' + i + '][ingredient_id]">');
+
+      $amount.val(ingredient.amount);
+      $measurement.val(ingredient.amount);
+      $ingredient.val(ingredient.ingredient);
+
+      $amount.appendTo('#secret_ingredients');
+      $measurement.appendTo('#secret_ingredients');
+      $ingredient.appendTo('#secret_ingredients');
+    });
+
+    //return false; // Just so we can inspect the form before submission.
   });
 
 });

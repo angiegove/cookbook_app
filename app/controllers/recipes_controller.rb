@@ -13,6 +13,10 @@ class RecipesController < ApplicationController
 
   def create
     recipe = Recipe.create params[:recipe]
+    params[:recipe_ingredients].each do |ing|
+      ing.recipe_id = recipe.id
+      RecipeIngredient.create(ing)
+    end
     redirect_to recipe_path(recipe.id)
   end
 

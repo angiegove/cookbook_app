@@ -35,7 +35,7 @@ m4 = Measurement.create(:unit => 'slice')
 m5 = Measurement.create(:unit => 'N/A')
 m6 = Measurement.create(:unit => 'ounce')
 
-"N/A,can,box,small,medium,large,stick,pinch,dash,slice,tab,knob,handful,bottle,packet,bag,bunch,sprig,stalk,tablespoon (tbsp),teaspoons (tsp),cup,fluid ounces (fl oz),pint (pt),quart (qt),gallon (gal),ounces (oz),pound (lb),inch (in),litre (L),milliliter (ml),grams (g),kilogram (kg),centimeter (cm)".split(',').each do |u|
+"NA,can,box,small,medium,large,stick,pinch,dash,slice,tab,knob,handful,bottle,packet,bag,bunch,sprig,stalk,tablespoon (tbsp),teaspoons (tsp),cup,fluid ounces (fl oz),pint (pt),quart (qt),gallon (gal),ounces (oz),pound (lb),inch (in),litre (L),milliliter (ml),grams (g),kilogram (kg),centimeter (cm)".split(',').each do |u|
   Measurement.create!(:unit => u)
 end
 
