@@ -1,60 +1,67 @@
 <%= form_for @recipe do |f| %>
   <p>
+    <i class="fa fa-book"></i>
     <%= f.label :title %>
     <%= f.text_field :title %>
   </p>
   <p>
+    <i class="fa fa-clock-o"></i>
     <%= f.label :duration %>
     <%= f.text_field :duration %>
   </p>
   <p>
+    <i class="fa fa-cutlery"></i>
     <%= f.label :serving_size %>
     <%= f.text_field :serving_size %>
   </p>
 
+  <p><i class="fa fa-leaf"></i>Ingredients:</p>
   <div id="recipe_ingredients_display">
-
-
     <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
       <li>
 
-        <p>
+        <div class="form_amount">
           <%= text_field_tag :amount, recipe_ingredient.amount %>
-        </p>
-        <p>
+        </div>
+        <div class="form_measurement">
           <%= text_field_tag :measurement_query, recipe_ingredient.measurement.unit, :class => 'measurement_edit' %>
-        </p>
-        <p>
+        </div>
+        <div class="form_ingredient">
           <%= text_field_tag :ingredient_query, recipe_ingredient.ingredient.name, :class => 'ingredient_edit' %>
-        </p>
+        </div>
       </li>
     <% end %>
-
-
   </div>
-  <p>
+
+  <div class="form_amount">
     <%= label_tag :amount %>
     <%= text_field_tag :amount %>
-  </p>
-  <p>
-    <%= label_tag :measurement_query %>
+  </div>
+  <div class="form_measurement">
+    <%= label_tag :measurement_query, "Measurement" %>
     <%= text_field_tag :measurement_query %>
-  </p>
-  <p>
-    <%= label_tag :ingredient_query %>
+  </div>
+  <div class="form_ingredient">
+    <%= label_tag :ingredient_query, "Ingredient" %>
     <%= text_field_tag :ingredient_query %>
-  </p>
+  </div>
   <button type="button" id="add_ingredient_button">Add Ingredient</button>
 
   <p>
+    <i class="fa fa-fire"></i>
+    <i class="fa fa-pencil"></i>
+    <i class="fa fa-pencil-square"></i>
     <%= f.label :instructions %>
     <%= f.text_area :instructions %>
   </p>
   <p>
+    <i class="fa fa-camera"></i>
+    <i class="fa fa-picture-o"></i>
     <%= f.label :image %>
     <%= f.file_field :image %>
   </p>
   <p>
+    <i class="fa fa-comment"></i>
     <%= f.label :comment %>
     <%= f.text_area :comment %>
   </p>
