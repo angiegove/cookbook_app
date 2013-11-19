@@ -14,13 +14,13 @@
 
   <p>Ingredients:
     <ul>
-      <% @recipe.recipe_ingredients.each do |ingredient| %>
+      <% recipe.recipe_ingredients.each do |ingredient| %>
         <li><%= ingredient.ingredient.name %></li>
       <% end %>
     </ul>
   </p>
 
-  <p><%= @recipe.instructions %></p>
+  <p><%= recipe.instructions %></p>
 
-  <p>Comments: <%= @recipe.comment %></p>
+  <p>Comments: <%= recipe.comment %></p>
 <% end %>
