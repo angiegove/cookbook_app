@@ -86,6 +86,10 @@
   </p>
 
 
+
+
+
+
   <%= f.submit %>
 
   <div id="secret_ingredients"></div>
@@ -116,5 +120,7 @@
     var na_id = $('#na_id').val();
 
  -->
-
-
+<!-- THis is for assigning a recipe straight to a cookbook. it is not complete yet -->
+<!--   < %= f.label :cookbook_id %>
+  < %= f.collection_select :cookbook_id, Cookbook.all, :id, :tite, :include_blank => true %>
+  < %= f.select :approved, [['Approved', true], ['Unapproved', false]] %> -->

@@ -2,12 +2,16 @@
 <html>
 <head>
   <title>CookbookApp</title>
+  <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Dosis|Ubuntu|Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= @pdf_version if @pdf_version.present? %>">
+
 
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
