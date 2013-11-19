@@ -1,13 +1,16 @@
 <style>
-body {/*background-image: url('http://demilked.uuuploads.com/free-paper-textures/free-paper-texture-6.jpg');*/
-font-family: 'Ubuntu', sans-serif;;
+body {background-image: url('http://3.bp.blogspot.com/-fPXuNcVecyY/UYg6znghHmI/AAAAAAAAJ10/tG2RlmdQwFo/s1600/halal+foods+vector+images+with+background+clip+arts+illustration+halal+kitchen+accessories.jpg');
+font-family: 'Ubuntu', sans-serif;
+text-align: center;
 }
 h1{
   font-family: font-family: 'Dosis', sans-serif;
   color: #FF6C49;
+  font-size: 50px;
 }
 h2 {
   font-family: font-family: 'Dosis', sans-serif;
+  color: #0FB37A;
 }
 /*.fullscreen {
   background-image: url('http://demilked.uuuploads.com/free-paper-textures/free-paper-texture-6.jpg');
@@ -22,14 +25,18 @@ h2 {
 
 }
 */
-/*.cookbook_pdf{
+.cookbook_pdf{
   background-color: white;
-}*/
+}
+
+.img.image_pdf{
+max-height: 250px;
+max-width: 250px;
+}
 
 </style>
 <div class="fullscreen"></div>
   <div class='cookbook_pdf'>
-  <h1>Cookbooks</h1>
 
   <h1><%= @cookbook.title %> </h2>
 
@@ -44,7 +51,7 @@ h2 {
       <h2><%= recipe.title %> </h2>
       <p>Duration: <%= recipe.duration %></p>
       <p>Servings: <%= recipe.serving_size %></p>
-      <div><%= image_tag recipe.image, :class => 'image_pdf' %></div>
+      <%= image_tag recipe.image, :class => 'image_pdf' %>
 
       <h2>Ingredients:</h2>
         <ul>
