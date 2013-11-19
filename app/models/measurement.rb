@@ -4,7 +4,6 @@
 #
 #  id         :integer          not null, primary key
 #  unit       :string(255)
-#  amount     :float
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

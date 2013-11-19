@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131118035549) do
+ActiveRecord::Schema.define(:version => 20131119015432) do
 
   create_table "cookbooks", :force => true do |t|
     t.string   "title"
@@ -59,9 +59,6 @@ ActiveRecord::Schema.define(:version => 20131118035549) do
   create_table "recipes", :force => true do |t|
     t.string   "title"
     t.integer  "duration"
-    t.string   "amount"
-    t.string   "unit"
-    t.string   "ingredient"
     t.text     "instructions"
     t.text     "image"
     t.text     "comment"
