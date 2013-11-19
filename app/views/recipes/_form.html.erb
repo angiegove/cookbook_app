@@ -12,7 +12,26 @@
     <%= f.text_field :serving_size %>
   </p>
 
-  <div id="recipe_ingredients_display"></div>
+  <div id="recipe_ingredients_display">
+
+
+    <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
+      <li>
+
+        <p>
+          <%= text_field_tag :amount, recipe_ingredient.amount %>
+        </p>
+        <p>
+          <%= text_field_tag :measurement_query, recipe_ingredient.measurement.unit, :class => 'measurement_edit' %>
+        </p>
+        <p>
+          <%= text_field_tag :ingredient_query, recipe_ingredient.ingredient.name, :class => 'ingredient_edit' %>
+        </p>
+      </li>
+    <% end %>
+
+
+  </div>
   <p>
     <%= label_tag :amount %>
     <%= text_field_tag :amount %>

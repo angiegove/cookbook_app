@@ -60,11 +60,11 @@ input { font-size: 28px; padding: 10px; border: 1px solid #CCC; display: block; 
 
 
 /*******************************************
-          RECIPEDISPLAY
+          RECIPE DISPLAY
 *******************************************/
 
 .instructions_display {
-    white-space: pre;
+  white-space: pre;
 }
 
 

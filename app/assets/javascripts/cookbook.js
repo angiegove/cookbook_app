@@ -48,7 +48,7 @@ var add_recipe_ingredient = function (event) {
 $(document).ready( function () {
 
 // Below handles the autocomplete for adding an ingredient in the recipe form
-  $('#ingredient_query').autocomplete({
+  $('#ingredient_query, .ingredient_edit').autocomplete({
     serviceUrl:'/ingredients_list',
     minChars:2,
     delimiter: /(,|;)\s*/, // regex or character
@@ -63,7 +63,7 @@ $(document).ready( function () {
     },
   });
 // Below handles the autocomplete for adding the measurement unit in the recipe form
-  $('#measurement_query').autocomplete({
+  $('#measurement_query, .measurement_edit').autocomplete({
     serviceUrl:'/measurements_list',
     minChars:1,
     delimiter: /(,|;)\s*/, // regex or character
