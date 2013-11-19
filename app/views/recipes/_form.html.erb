@@ -39,31 +39,31 @@
   </div>
 
   <div class="row">
-    <div class="form_recipe_ingredients">
-
-      <div class="col-sm-2 col-md-2">
-        <div class="form_amount">
-          <%= label_tag :amount %>
-          <%= text_field_tag :amount %>
+    <div class="col-sm-12 col-md-12 form_recipe_ingredients">
+      <div class="row">
+        <div class="col-sm-2 col-md-2">
+          <div class="form_amount">
+            <%= label_tag :amount %>
+            <%= text_field_tag :amount %>
+          </div>
+        </div>
+        <div class="col-sm-3 col-md-3">
+          <div class="form_measurement">
+            <%= label_tag :measurement_query, "Measurement" %>
+            <%= text_field_tag :measurement_query %>
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <div class="form_ingredient">
+            <%= label_tag :ingredient_query, "Ingredient" %>
+            <%= text_field_tag :ingredient_query %>
+          </div>
         </div>
       </div>
-      <div class="col-sm-3 col-md-3">
-        <div class="form_measurement">
-          <%= label_tag :measurement_query, "Measurement" %>
-          <%= text_field_tag :measurement_query %>
-        </div>
+       <div class="col-sm-2 col-md-2">
+        <button type="button" id="add_ingredient_button"><i class="fa fa-plus-square"></i></button>
       </div>
-      <div class="col-sm-6 col-md-6">
-        <div class="form_ingredient">
-          <%= label_tag :ingredient_query, "Ingredient" %>
-          <%= text_field_tag :ingredient_query %>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-1 col-md-1">
-      <button type="button" id="add_ingredient_button" class="form_recipe_ingredient_button">Add</button>
-    </div>
+   </div>
   </div>
 
   <p>
@@ -86,7 +86,8 @@
   </p>
 
 
-
+08015E
+0FA873
 
 
 
