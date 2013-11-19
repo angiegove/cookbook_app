@@ -1,0 +1,18 @@
+@media print {
+  .recipe_pdf {
+    background-color: pink;
+    clear: both !important;
+    display: block !important;
+    page-break-before: always !important;
+  }
+
+
+
+  .image_pdf {
+    page-break-before: always;
+  }
+}
+
+.template1 h1 {
+  font: ;
+}

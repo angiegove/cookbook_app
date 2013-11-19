@@ -9,6 +9,7 @@
 <%= link_to 'Edit Cookbook', edit_cookbook_path %>
 
 <%= link_to 'View the template of this Cookbook', cookbook_template_path %>
+<%= link_to 'Download this Cookbook', cookbook_template_path(:format => 'pdf') %>
 <%= button_to 'Delete Cookbook', cookbook_path(@cookbook.id), :method => 'delete' %>
 
 <h2>Recipes</h2>

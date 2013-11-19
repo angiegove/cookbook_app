@@ -59,4 +59,12 @@ body { font-family: sans-serif; font-size: 14px; line-height: 1.6em; margin: 0; 
 input { font-size: 28px; padding: 10px; border: 1px solid #CCC; display: block; margin: 20px 0; }
 
 
+/*******************************************
+          RECIPEDISPLAY
+*******************************************/
+
+.instructions_display {
+    white-space: pre;
+}
+
 
