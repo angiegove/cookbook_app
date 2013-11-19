@@ -11,17 +11,21 @@
     <%= f.label :serving_size %>
     <%= f.text_field :serving_size %>
   </p>
-  <input type="text" name="q" id="measurement_query" />
-  <input type="text" name="q" id="ingredient_query" />
-
-<!--MEASUREMENTS HEEEEEEEEEELP   <p>
-    < %= f.label :amount %>
-    < %= f.text_field :amount %>
+  <div id="recipe_ingredients_display"></div>
+  <p>
+    <%= label_tag :amount %>
+    <%= text_field_tag :amount %>
   </p>
   <p>
-    < %= f.label :unit %>
-    < %= f.text_field :unit %>
-  </p> -->
+    <%= label_tag :measurement_query %>
+    <%= text_field_tag :measurement_query %>
+  </p>
+  <p>
+    <%= label_tag :ingredient_query %>
+    <%= text_field_tag :ingredient_query %>
+  </p>
+  <button type="button" id="add_ingredient_button">Add Ingredient</button>
+
   <p>
     <%= f.label :ingredient %>
     <%= f.text_field :ingredient %>
@@ -45,16 +49,17 @@
 <% end %>
 
 
-<!--script type="text/underscore-template" id="recipe_ingredient_template">
-<div class="task" data-task-id="<%#= id %>">
-    <p><%#= description %></p>
-    <p class="date">Created at: <%#= creationTime %></p>
+<script type="text/underscore-template" id="recipe_ingredient_template">
+  <div class="recipe_ingredient" data-recipe-ingredient-id="{{= id }}">
+    <p>{{= amount }}</p>
+    <p>{{= unit }}</p>
+    <p>{{= ingredient }}</p>
     <div class="controls">
-      <button class="completed">Completed</button>
+      <button class="edit">Edit</button>
       <button class="delete">Delete</button>
     </div>
   </div>
-</script-->
+</script>
 
 
 
