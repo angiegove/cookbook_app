@@ -29,11 +29,20 @@ class CookbooksController < ApplicationController
     end
   end
 
-  def template
+  def cookbook_template
     @cookbook = Cookbook.find params[:id]
     # if @cookbook.user == @current_user || @current_user.is_admin?
-      @recipes = @cookbook.recipes
-      @recipeIngredient =
+    @recipes = @cookbook.recipes
+    respond_to do |format|
+      format.html
+      format.pdf do
+        cookbook = render_to_string(:action => "cookbook_template.html.erb", :layout => false)
+        cookbook = PDFKit.new(cookbook)
+        cookbook = cookbook.to_pdf
+        send_data cookbook, :filename => "cookbook.pdf", :type => 'application/pdf'
+      end
+    end
+
 
     # else
     #   redirect_to root_path

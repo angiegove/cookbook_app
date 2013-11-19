@@ -10,7 +10,7 @@ CookbookApp::Application.routes.draw do
   get '/measurements_list' => 'measurements#list'
 
   resources :cookbooks
-  get '/cookbooks/:id/template' => 'cookbooks#template'
+  get '/cookbooks/:id/template' => 'cookbooks#cookbook_template'
 
   resources :recipes
   resources :ingredients, :only => [:new, :create, :destroy]
