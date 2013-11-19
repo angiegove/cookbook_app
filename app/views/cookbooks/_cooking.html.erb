@@ -1,3 +1,4 @@
+
 <style>
 body {background-image: url('http://3.bp.blogspot.com/-fPXuNcVecyY/UYg6znghHmI/AAAAAAAAJ10/tG2RlmdQwFo/s1600/halal+foods+vector+images+with+background+clip+arts+illustration+halal+kitchen+accessories.jpg');
 font-family: 'Ubuntu', sans-serif;
@@ -42,37 +43,3 @@ max-width: 250px;
 }
 
 </style>
-<div class="fullscreen"></div>
-  <div class='cookbook_pdf'>
-
-  <h1><%= @cookbook.title %> </h2>
-
-  <p>Description: <%= @cookbook.description %></p>
-
-
-  <h1>Recipes</h2>
-  <% @recipes.each do |recipe|%>
-    <div class="break"></div>
-    <div class='recipe_pdf'>
-
-      <h2><%= recipe.title %> </h2>
-      <p>Duration: <%= recipe.duration %></p>
-      <p>Servings: <%= recipe.serving_size %></p>
-      <%= image_tag recipe.image, :class => 'recipe_picture' %>
-
-      <h2>Ingredients:</h2>
-        <ul>
-          <% recipe.recipe_ingredients.each do |ingredient| %>
-            <li><%= ingredient.ingredient.name %></li>
-          <% end %>
-        </ul>
-      </p>
-
-      <p><%= recipe.instructions %></p>
-
-      <p>Comments: <%= recipe.comment %></p>
-    </div>
-  <% end %>
-
-</div>
-
