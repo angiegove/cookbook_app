@@ -2,21 +2,34 @@
 
 
 <h2><%= @recipe.title %> </h2>
-<p>Duration: <%= @recipe.duration %></p>
-<p>Servings: <%= @recipe.serving_size %></p>
-<div><%= image_tag @recipe.image, :class => 'recipe' %></div>
+<% if @recipe.duration.present? %>
+  <p>Duration: <%= @recipe.duration %></p>
+<% end %>
+<% if @recipe.serving_size.present? %>
+  <p>Servings: <%= @recipe.serving_size %></p>
+<% end %>
+<div>
+  <% if @recipe.image.present? %>
+    <%= image_tag @recipe.image, :class => 'recipe' %>
+  <% end %>
+</div>
 <p>Ingredients:
   <ul>
-    <!-- INCLUDE MEASUREMENTS HEEEEEEELP -->
-    <% @recipe.ingredients.each do |ingredient| %>
-      <li><%= ingredient.name %></li>
+    <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
+      <li>
+        <div class="show_amount"><%= recipe_ingredient.amount %></div>
+        <div class="show_measurement"><%= recipe_ingredient.measurement.unit %></div>
+        <div class="show_ingredient"><%= recipe_ingredient.ingredient.name %></div>
+      </li>
     <% end %>
   </ul>
 </p>
 
-<p><%= @recipe.instructions %></p>
+<p>Instructions: <%= @recipe.instructions %></p>
 
-<p>Comments: <%= @recipe.comment %></p>
+<% if @recipe.comment.present? %>
+  <p>Comments: <%= @recipe.comment %></p>
+<% end %>
 
 
 

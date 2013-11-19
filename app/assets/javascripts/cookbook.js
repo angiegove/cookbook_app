@@ -88,7 +88,7 @@ $(document).ready( function () {
       var $ingredient = $('<input type="hidden" name="recipe_ingredients[' + i + '][ingredient_id]">');
 
       $amount.val(ingredient.amount);
-      $measurement.val(ingredient.amount);
+      $measurement.val(ingredient.measurement);
       $ingredient.val(ingredient.ingredient);
 
       $amount.appendTo('#secret_ingredients');
