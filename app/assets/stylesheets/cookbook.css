@@ -338,7 +338,7 @@ li.show_ing_list{
 *******************************************/
 
 .thumbnail:hover {
-  background-color: rgba(255, 108, 73, 0.8);
+  background-color: rgba(255, 84, 50, 0.8);
 }
 /*.thumbnail:before {
   background-color: inherit;
@@ -348,7 +348,7 @@ li.show_ing_list{
   /*height: 300px;*/
   width: 100%;
   text-align: center;
-  border: 10px solid ;
+  border: 5px solid white;
   background-color: #0E9C6A   ;
   transition: background-color 1s;
 }
@@ -357,3 +357,10 @@ li.show_ing_list{
   background: transparent;
 }
 */
+.thumbnail a{
+  text-decoration: none;
+  color: white;
+}
+.col-md-4 {
+  margin-left: -30px;
+}

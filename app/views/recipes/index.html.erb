@@ -1,13 +1,27 @@
-<h1>All Recipes?</h1>
+<!-- <h1>All Recipes?</h1>
 
 
-<% @recipes.each do |recipe| %>
+< % @recipes.each do |recipe| %>
   <ol>
-    <h2><%= link_to recipe.title, recipe_path(recipe.id) %></h2>
+    <h2>< %= link_to recipe.title, recipe_path(recipe.id) %></h2>
     <ul>
-      <li>Duration: <%= recipe.duration %></li>
-      <li>Servings: <%= recipe.serving_size %></li>
+      <li>Duration: < %= recipe.duration %></li>
+      <li>Servings: < %= recipe.serving_size %></li>
     </ul>
-    <div><%= image_tag recipe.image, :class => 'recipe' %></div>
+    <div>< %= image_tag recipe.image, :class => 'recipe' %></div>
   </ol>
-<% end %>
+< % end %> -->
+
+
+  <div class= "cookbook">
+    <h1>My Recipes</h1>
+    <% @recipes.each do |recipe| %>
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <div class="caption">
+            <h2><%= link_to recipe.title, recipes_path(recipe.id) %></h2>
+          </div>
+        </div>
+       </div>
+     <% end %>
+  </div>
