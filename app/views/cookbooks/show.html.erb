@@ -8,7 +8,9 @@
 <!-- Need to change the routes so edit so doesnt need to go to a new page, can use the new form -->
 <%= link_to 'Edit Cookbook', edit_cookbook_path %>
 
-<%= link_to 'View the template of this Cookbook', cookbook_template_path %>
+<%= link_to 'View the cooking template of this Cookbook', custom_cookbook_template_path(@cookbook.id, 'cooking') %>
+<%= link_to 'View the maritime template of this Cookbook', custom_cookbook_template_path(@cookbook.id, 'maritime') %>
+
 <%= link_to 'Download this Cookbook', cookbook_template_path(:format => 'pdf') %>
 <%= button_to 'Delete Cookbook', cookbook_path(@cookbook.id), :method => 'delete' %>
 

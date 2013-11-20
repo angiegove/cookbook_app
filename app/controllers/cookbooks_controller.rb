@@ -31,6 +31,7 @@ class CookbooksController < ApplicationController
 
   def cookbook_template
     @cookbook = Cookbook.find params[:id]
+    @theme = params[:theme]
     # if @cookbook.user == @current_user || @current_user.is_admin?
     @recipes = @cookbook.recipes
     respond_to do |format|

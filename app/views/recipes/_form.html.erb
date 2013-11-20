@@ -122,6 +122,6 @@
 
  -->
 <!-- THis is for assigning a recipe straight to a cookbook. it is not complete yet -->
-<!--   < %= f.label :cookbook_id %>
-  < %= f.collection_select :cookbook_id, Cookbook.all, :id, :tite, :include_blank => true %>
-  < %= f.select :approved, [['Approved', true], ['Unapproved', false]] %> -->
+  <%= f.label :cookbook_id %>
+  <%= f.collection_select :cookbook_id, Cookbook.all, :id, :tite, :include_blank => true %>
+  <%= f.select :cookbook_id, [Cookbook.all.title] %>
