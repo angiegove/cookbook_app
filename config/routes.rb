@@ -10,7 +10,7 @@ CookbookApp::Application.routes.draw do
   get '/measurements_list' => 'measurements#list'
 
   resources :cookbooks
-  get '/cookbooks/:id/template/' => 'cookbooks#cookbook_template', as: :cookbook_template
+  get '/cookbooks/:id/template' => 'cookbooks#cookbook_template', as: :cookbook_template
   get '/cookbooks/:id/template/:theme' => 'cookbooks#cookbook_template', as: :custom_cookbook_template
 
   resources :recipes

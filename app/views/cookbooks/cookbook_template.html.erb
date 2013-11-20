@@ -1,7 +1,8 @@
-<style>
-<% render :partial => @theme %>
 
-</style>
+<%= render :partial => @theme %>
+
+<%= link_to 'Download this Cookbook', custom_cookbook_template_path(@cookbook.id, @theme, :format => 'pdf') %>
+
 <div class="fullscreen"></div>
   <div class='cookbook_pdf'>
 
@@ -16,21 +17,20 @@
     <div class='recipe_pdf'>
 
       <h2><%= recipe.title %> </h2>
-      <p>Duration: <%= recipe.duration %></p>
-      <p>Servings: <%= recipe.serving_size %></p>
-      <%= image_tag recipe.image, :class => 'recipe_picture' %>
+        <p>Duration: <%= recipe.duration %></p>
+        <p>Servings: <%= recipe.serving_size %></p>
+        <%= image_tag recipe.image, :class => 'recipe_picture' %>
 
       <h2>Ingredients:</h2>
-        <ul>
           <% recipe.recipe_ingredients.each do |ingredient| %>
-            <li><%= ingredient.ingredient.name %></li>
+            <p><%= ingredient.ingredient.name %></p>
           <% end %>
-        </ul>
+
       </p>
 
       <p><%= recipe.instructions %></p>
 
-      <p>Comments: <%= recipe.comment %></p>
+      <h3>Comments: <%= recipe.comment %></h3>
     </div>
   <% end %>
 
