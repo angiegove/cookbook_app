@@ -3,6 +3,15 @@
 
 <%= link_to 'Download this Cookbook', custom_cookbook_template_path(@cookbook.id, @theme, :format => 'pdf') %>
 
+<%= form_tag "/cookbooks/#{@cookbook.id}/email", :method => 'post' do %>
+  <div class='form-group'>
+    <%= label_tag :email %>
+    <%= text_field_tag :email %>
+  </div>
+  <%= submit_tag %>
+<% end %>
+
+
 <div class="fullscreen"></div>
   <div class='cookbook_pdf'>
 

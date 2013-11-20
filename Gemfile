@@ -10,6 +10,7 @@ gem "fog", "~> 1.3.1" #required for carrierwave s3
 gem 'pdfkit'
 gem 'underscore-rails'
 
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -30,6 +31,7 @@ group :development, :test do
 
   gem 'quiet_assets'
   gem 'better_errors'
+  gem 'dotenv-rails'
   # BetterErrors.editor = :sublime if defined? BetterErrors  (initializer)
   # http://localhost:3000/__better_errors (reports last exception for debugging)
   gem 'binding_of_caller'

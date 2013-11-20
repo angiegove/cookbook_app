@@ -32,6 +32,7 @@ class CookbooksController < ApplicationController
   def cookbook_template
     @cookbook = Cookbook.find params[:id]
     @theme = params[:theme]
+    session[:theme] = @theme
     # if @cookbook.user == @current_user || @current_user.is_admin?
     @recipes = @cookbook.recipes
     respond_to do |format|
@@ -48,6 +49,12 @@ class CookbooksController < ApplicationController
     # else
     #   redirect_to root_path
     # end
+  end
+
+  def email
+    @cookbook= Cookbook.find params[:id]
+    CookbookMailer.cookbook_email(@cookbook, session[:theme]).deliver
+    redirect_to cookbooks_path
   end
 
   def edit
