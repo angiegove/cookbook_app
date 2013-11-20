@@ -109,6 +109,7 @@ label {
   color: rgba(8, 1, 94, 1);
   font-size: 1.9em;
   padding: 0.4em;
+  margin-bottom: 10px;
 }
 
 .create_edit_submit_button:hover {

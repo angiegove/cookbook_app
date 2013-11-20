@@ -33,5 +33,5 @@
 
 
 
-<%= link_to 'Edit Recipe', edit_recipe_path %>
-<%= button_to 'Delete Recipe', recipe_path(@recipe.id), :method => 'delete' %>
+<%= link_to 'Edit Recipe', edit_recipe_path, :class => "create_edit_submit_button" %>
+<%= button_to 'Delete Recipe', recipe_path(@recipe.id), :method => 'delete', :class => "create_edit_submit_button" %>
