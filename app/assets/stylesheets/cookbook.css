@@ -345,3 +345,14 @@ label {
 .col-md-4 {
   margin-left: -30px;
 }
+
+.circle {
+width: 150px;
+height: 149px;
+border-radius: 250px;
+font-size: 20px;
+color: white;
+line-height: 150px;
+text-align: center;
+background: #000;
+    }
