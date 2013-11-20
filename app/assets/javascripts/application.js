@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require jquery.autocomplete
 //= require underscore
+//= require jquery.ui.all
 //= require_tree .
 
