@@ -6,7 +6,7 @@
 
         <i class="fa fa-fire"></i>
         <%= f.label :title %>
-        <%= f.text_field :title %>
+        <%= f.text_field :title, :autofocus => true %>
       </p>
 
           <div class="row">
@@ -109,7 +109,7 @@
       <p>
         <i class="fa fa-pencil"></i>
         <%= f.label :instructions %>
-        <%= f.text_area :instructions, :class => 'form_instructions_textarea' %>
+        <%= f.text_area :instructions, :class => 'form_large_textarea' %>
       </p>
       <p>
         <i class="fa fa-camera"></i>
@@ -120,7 +120,7 @@
       <p>
         <i class="fa fa-comment"></i>
         <%= f.label :comment %>
-        <%= f.text_area :comment, :class => 'form_comment_textarea' %>
+        <%= f.text_area :comment, :class => 'form_small_textarea' %>
       </p>
 
 
@@ -133,7 +133,7 @@
 
 
 
-      <button class="create_edit_submit_button">
+      <button class="general_submit_button">
         <i class="fa fa-plus"></i>
           <% if @recipe.persisted? %>
             Update Recipe
