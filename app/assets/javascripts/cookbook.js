@@ -62,7 +62,7 @@ $(document).ready( function () {
     var id = $container.data('recipe-ingredient-id');
     $.ajax({
       method: 'POST',
-      url: '/ingredients/' + id,
+      url: '/recipes/recipes_ingredients/' + id,
       data: {
         _method: 'delete'
       }
@@ -86,7 +86,7 @@ $(document).ready( function () {
     noCache: false, //default is false, set to true to disable caching
     // callback function:
     onSelect: function(data){
-      $('#ingredient_query').data('ingredient-id', data.data)
+      $(this).data('ingredient-id', data.data)
     },
   });
 // Below handles the autocomplete for adding the measurement unit in the recipe form
@@ -101,18 +101,18 @@ $(document).ready( function () {
     noCache: false, //default is false, set to true to disable caching
     // callback function:
     onSelect: function(data){
-      $('#measurement_query').data('measurement-id', data.data) ;
+      $(this).data('measurement-id', data.data) ;
     },
   });
 
   $('#add_ingredient_button').click(add_recipe_ingredient);
 
 
-  $('#new_recipe').submit(function () {
+  $('#new_recipe, .edit_recipe').submit(function () {
     $.each(recipe_ingredient, function (i, ingredient) {
-      var $amount = $('<input type="hidden" name="recipe_ingredients[' + i + '][amount]">');
-      var $measurement = $('<input type="hidden" name="recipe_ingredients[' + i + '][measurement_id]">');
-      var $ingredient = $('<input type="hidden" name="recipe_ingredients[' + i + '][ingredient_id]">');
+      var $amount = $('<input type="hidden" name="new_recipe_ingredients[' + i + '][amount]">');
+      var $measurement = $('<input type="hidden" name="new_recipe_ingredients[' + i + '][measurement_id]">');
+      var $ingredient = $('<input type="hidden" name="new_recipe_ingredients[' + i + '][ingredient_id]">');
 
       $amount.val(ingredient.amount);
       $measurement.val(ingredient.measurement);
@@ -122,6 +122,15 @@ $(document).ready( function () {
       $measurement.appendTo('#secret_ingredients');
       $ingredient.appendTo('#secret_ingredients');
     });
+
+    if ($(this).is('.edit_recipe')) {
+      $('.measurement_edit').each(function () {
+        $(this).val( $(this).data('measurement-id'));
+      });
+      $('.ingredient_edit').each(function () {
+        $(this).val( $(this).data('ingredient-id'));
+      })
+    }
 
     //return false; // Just so we can inspect the form before submission.
   });

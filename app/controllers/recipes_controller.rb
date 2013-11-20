@@ -10,7 +10,7 @@ class RecipesController < ApplicationController
 
   def create
     recipe = Recipe.create params[:recipe]
-    params[:recipe_ingredients].each do |id, ing|
+    params[:new_recipe_ingredients].each do |id, ing|
       ing['recipe_id'] = recipe.id
       RecipeIngredient.create(ing)
     end
@@ -37,6 +37,17 @@ class RecipesController < ApplicationController
   def update
     recipe = Recipe.find params[:id]
     recipe.update_attributes params[:recipe]
+
+    params[:recipe_ingredients].each do |id, ing|
+      recipe_ingredient = RecipeIngredient.find id
+      recipe_ingredient.update_attributes(ing)
+    end
+    if params[:new_recipe_ingredients].present?
+      params[:new_recipe_ingredients].each do |id, ing|
+        ing['recipe_id'] = recipe.id
+        RecipeIngredient.create(ing)
+      end
+    end
     redirect_to recipe_path(recipe.id)
   end
 
@@ -44,6 +55,15 @@ class RecipesController < ApplicationController
     recipe = Recipe.find params[:id]
     recipe.destroy
     redirect_to recipes_path
+  end
+
+
+  def recipes_ingredients_destroy
+    recipe_ingredient = RecipeIngredient.find params[:id]
+    recipe_ingredient.destroy
+    render :json => {
+      status: "hey that went great"
+    }
   end
 
 

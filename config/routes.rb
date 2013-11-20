@@ -18,6 +18,8 @@ CookbookApp::Application.routes.draw do
   get '/cookbooks/:id/template' => 'cookbooks#cookbook_template', as: :cookbook_template
   get '/cookbooks/:id/template/:theme' => 'cookbooks#cookbook_template', as: :custom_cookbook_template
 
+  delete '/recipes/recipes_ingredients/:id' => 'recipes#recipes_ingredients_destroy'
+
   resources :recipes
   resources :ingredients, :only => [:new, :create, :destroy]
   resources :users, :except => [:edit] do

@@ -68,17 +68,17 @@
                 <div class="row">
                   <div class="col-sm-2 col-md-2">
                     <div class="form_recipe_ingredients_indv form_amount">
-                      <%= text_field_tag :amount, recipe_ingredient.amount %>
+                      <%= text_field_tag "recipe_ingredients[#{recipe_ingredient.id}][amount]", recipe_ingredient.amount %>
                     </div>
                   </div>
                   <div class="col-sm-3 col-md-3">
                     <div class="form_recipe_ingredients_indv form_measurement">
-                      <%= text_field_tag :measurement_query, recipe_ingredient.measurement.unit, :class => 'measurement_edit' %>
+                      <%= text_field_tag "recipe_ingredients[#{recipe_ingredient.id}][measurement_id]", recipe_ingredient.measurement.unit, :class => 'measurement_edit', :"data-measurement-id" => recipe_ingredient.measurement_id %>
                     </div>
                   </div>
                   <div class="col-sm-6 col-md-6">
                     <div class="form_recipe_ingredients_indv form_ingredient">
-                      <%= text_field_tag :ingredient_query, recipe_ingredient.ingredient.name, :class => 'ingredient_edit' %>
+                      <%= text_field_tag "recipe_ingredients[#{recipe_ingredient.id}][ingredient_id]", recipe_ingredient.ingredient.name, :class => 'ingredient_edit', :"data-ingredient-id" => recipe_ingredient.ingredient_id %>
                     </div>
                   </div>
 
