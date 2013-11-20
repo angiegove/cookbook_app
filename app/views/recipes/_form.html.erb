@@ -99,8 +99,14 @@
       </p>
 
 
-
-      <%= f.submit :class => 'create_edit_submit_button' %>
+      <button class="create_edit_submit_button">
+        <i class="fa fa-plus"></i>
+        <% if @recipe.persisted? %>
+          Update Recipe
+        <% else %>
+          Create Recipe
+        <% end %>
+      </button>
 
       <div id="secret_ingredients"></div>
     </div>

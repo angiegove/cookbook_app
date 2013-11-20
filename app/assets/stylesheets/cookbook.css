@@ -99,10 +99,15 @@ label {
   width: 33%;
   height: 50px;
   border: none;
+  margin: auto;
+  display: block;
+  color: rgba(8, 1, 94, 1);
+  font-size: 1.5em;
 }
 
-.create_edit_submit_button {
-
+.create_edit_submit_button:hover {
+  background-color: rgba(242, 74, 58, 1);
+}
 
 
 /*******************************************
@@ -141,6 +146,9 @@ label {
 
 .add_ingredient_button {
   color: rgba(255, 108, 73, 1);
+}
+.add_ingredient_button:hover {
+  color: rgba(242, 74, 58, 1);
 }
 
 .form_instructions_textarea {
