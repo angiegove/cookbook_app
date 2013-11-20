@@ -52,10 +52,19 @@ body {
 
 
 /*******************************************
+          FONT AWESOME
+*******************************************/
+.fa {
+  font-size: 1.9em;
+  margin-right: 0.3em;
+  color: rgba(15, 168, 115, 1);
+}
+
+
+/*******************************************
           FORM
 *******************************************/
 form p {
-  background-color: rgba(220, 255, 227, 1);
   padding: 10px;
   margin: 20px 10px;
 
@@ -82,48 +91,37 @@ label {
   font-size: 1.8em;
 }
 
-/*button {
-  margin-bottom: 40px;
-}
-*/
-.fa {
-  font-size: 1.9em;
-  margin-right: 0.3em;
-}
-
-.form_recipe_ingredients {
-  background-color: rgba(220, 255, 227, 1);
+.form_recipe_ingredients_group {
   padding: 10px;
   margin: 10px 10px 10px 25px;
+  margin-top: -37px;
 
 }
 
-.form_recipe_ingredients label {
+.form_recipe_ingredients_indv label {
 /*  text-align: center; <----- This doesn't work but I need to make the text center within its column */
 }
 
-.form_amount {
+.form_recipe_ingredients_indv {
   width: 100%;
+  font-size: 0.7em;
 }
-.form_amount input{
+
+.form_recipe_ingredients_indv input {
   width: 100%;
-}
-.form_measurement input{
-  width: 100%;
-}
-.form_ingredient input{
-  width: 100%;
+
 }
 
 #add_ingredient_button {
-/*  width: 100px;
-  height: 100px;
-*/
   font-size: 2em;
   border: 0;
   background-color: rgba(0, 0, 0, 0);
-  color: rgba(8, 1, 94, 1);
 
+}
+
+
+.add_ingredient_button {
+  color: rgba(255, 108, 73, 1);
 }
 
 

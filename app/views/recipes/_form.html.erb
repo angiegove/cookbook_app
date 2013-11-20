@@ -38,46 +38,42 @@
     <% end %>
   </div>
 
-  <div class="row">
-    <div class="col-sm-12 col-md-12 form_recipe_ingredients">
+    <div class="form_recipe_ingredients_group">
       <div class="row">
-        <div class="col-sm-2 col-md-2">
-          <div class="form_amount">
+        <div class="col-sm-2 col-md-2 _indv">
+          <div class="form_recipe_ingredients_indv form_amount">
             <%= label_tag :amount %>
             <%= text_field_tag :amount %>
           </div>
         </div>
         <div class="col-sm-3 col-md-3">
-          <div class="form_measurement">
+          <div class="form_recipe_ingredients_indv form_measurement">
             <%= label_tag :measurement_query, "Measurement" %>
             <%= text_field_tag :measurement_query %>
           </div>
         </div>
-        <div class="col-sm-4 col-md-4">
-          <div class="form_ingredient">
+        <div class="col-sm-6 col-md-6">
+          <div class="form_recipe_ingredients_indv form_ingredient">
             <%= label_tag :ingredient_query, "Ingredient" %>
             <%= text_field_tag :ingredient_query %>
           </div>
         </div>
-      </div>
-       <div class="col-sm-2 col-md-2">
-        <button type="button" id="add_ingredient_button"><i class="fa fa-plus-square"></i></button>
-      </div>
+         <div class="col-sm-1 col-md-1">
+          <button type="button" id="add_ingredient_button"><i class="fa fa-plus-square add_ingredient_button"></i></button>
+        </div>
+    </div>
    </div>
-  </div>
 
   <p>
-    <i class="fa fa-fire"></i>
     <i class="fa fa-pencil"></i>
-    <i class="fa fa-pencil-square"></i>
     <%= f.label :instructions %>
     <%= f.text_area :instructions %>
   </p>
   <p>
     <i class="fa fa-camera"></i>
-    <i class="fa fa-picture-o"></i>
     <%= f.label :image %>
     <%= f.file_field :image %>
+    <i class="fa fa-paperclip"></i>
   </p>
   <p>
     <i class="fa fa-comment"></i>
@@ -85,9 +81,6 @@
     <%= f.text_area :comment %>
   </p>
 
-
-08015E
-0FA873
 
 
 
