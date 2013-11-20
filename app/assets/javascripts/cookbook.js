@@ -47,6 +47,8 @@ var add_recipe_ingredient = function (event) {
 
 $(document).ready( function () {
 
+  $('#recipe_duration').timepicker();
+
 // Below handles the autocomplete for adding an ingredient in the recipe form
   $('#ingredient_query, .ingredient_edit').autocomplete({
     serviceUrl:'/ingredients_list',

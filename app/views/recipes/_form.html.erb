@@ -2,94 +2,107 @@
   <div class="row">
     <div class="col-sm-12 col-md-12">
 
-  <p>
-    <i class="fa fa-book"></i>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <i class="fa fa-clock-o"></i>
-    <%= f.label :duration %>
-    <%= f.text_field :duration %>
-  </p>
-  <p>
-    <i class="fa fa-cutlery"></i>
-    <%= f.label :serving_size %>
-    <%= f.text_field :serving_size %>
-  </p>
+      <p>
 
-  <p><i class="fa fa-leaf"></i><%= f.label "Ingredients" %></p>
+        <i class="fa fa-fire"></i>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </p>
+
+          <div class="row">
+              <div class="col-sm-6 col-md-6">
+                  <p>
+                    <i class="fa fa-clock-o"></i>
+                    <%= f.label :duration, 'Cooking Time' %>
+                    <%= f.text_field :duration %>
+                  </p>
+              </div>
+              <div class="col-sm-6 col-md-6">
+                  <p>
+                    <i class="fa fa-cutlery"></i>
+                    <%= f.label :serving_size, 'Servings' %>
+                    <%= f.text_field :serving_size %>
+                  </p>
+              </div>
+          </div>
 
 
-  <div id="recipe_ingredients_display">
-    <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
-      <li>
 
-        <div class="form_recipe_ingredients form_amount">
-          <%= text_field_tag :amount, recipe_ingredient.amount %>
-        </div>
-        <div class="form_recipe_ingredients form_measurement">
-          <%= text_field_tag :measurement_query, recipe_ingredient.measurement.unit, :class => 'measurement_edit' %>
-        </div>
-        <div class="form_recipe_ingredients form_ingredient">
-          <%= text_field_tag :ingredient_query, recipe_ingredient.ingredient.name, :class => 'ingredient_edit' %>
-        </div>
-      </li>
-    <% end %>
-  </div>
+      <p><i class="fa fa-leaf"></i><%= f.label "Ingredients" %></p>
 
-    <div class="form_recipe_ingredients_group">
-      <div class="row">
-        <div class="col-sm-2 col-md-2 _indv">
-          <div class="form_recipe_ingredients_indv form_amount">
-            <%= label_tag :amount %>
-            <%= text_field_tag :amount %>
+      <div id="recipe_ingredients_display">
+        <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
+          <li>
+
+            <div class="form_recipe_ingredients form_amount">
+              <%= text_field_tag :amount, recipe_ingredient.amount %>
+            </div>
+            <div class="form_recipe_ingredients form_measurement">
+              <%= text_field_tag :measurement_query, recipe_ingredient.measurement.unit, :class => 'measurement_edit' %>
+            </div>
+            <div class="form_recipe_ingredients form_ingredient">
+              <%= text_field_tag :ingredient_query, recipe_ingredient.ingredient.name, :class => 'ingredient_edit' %>
+            </div>
+          </li>
+        <% end %>
+      </div>
+
+      <div class="form_recipe_ingredients_group">
+        <div class="row">
+          <div class="col-sm-2 col-md-2">
+            <div class="form_recipe_ingredients_indv form_amount">
+              <%= label_tag :amount %>
+              <%= text_field_tag :amount %>
+            </div>
+          </div>
+          <div class="col-sm-3 col-md-3">
+            <div class="form_recipe_ingredients_indv form_measurement">
+              <%= label_tag :measurement_query, "Measurement" %>
+              <%= text_field_tag :measurement_query %>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-6">
+            <div class="form_recipe_ingredients_indv form_ingredient">
+              <%= label_tag :ingredient_query, "Ingredient" %>
+              <%= text_field_tag :ingredient_query %>
+            </div>
+          </div>
+           <div class="col-sm-1 col-md-1">
+            <button type="button" id="add_ingredient_button"><i class="fa fa-plus-square add_ingredient_button"></i></button>
           </div>
         </div>
-        <div class="col-sm-3 col-md-3">
-          <div class="form_recipe_ingredients_indv form_measurement">
-            <%= label_tag :measurement_query, "Measurement" %>
-            <%= text_field_tag :measurement_query %>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-6">
-          <div class="form_recipe_ingredients_indv form_ingredient">
-            <%= label_tag :ingredient_query, "Ingredient" %>
-            <%= text_field_tag :ingredient_query %>
-          </div>
-        </div>
-         <div class="col-sm-1 col-md-1">
-          <button type="button" id="add_ingredient_button"><i class="fa fa-plus-square add_ingredient_button"></i></button>
-        </div>
-    </div>
-   </div>
+      </div>
 
-  <p>
-    <i class="fa fa-pencil"></i>
-    <%= f.label :instructions %>
-    <%= f.text_area :instructions %>
-  </p>
-  <p>
-    <i class="fa fa-camera"></i>
-    <%= f.label :image %>
-    <%= f.file_field :image %>
-    <i class="fa fa-paperclip"></i>
-  </p>
-  <p>
-    <i class="fa fa-comment"></i>
-    <%= f.label :comment %>
-    <%= f.text_area :comment %>
-  </p>
-<!-- THis is for assigning a recipe straight to a cookbook. it is not complete yet -->
-  <%= label_tag :cookbook_id %>
+      <p>
+        <i class="fa fa-pencil"></i>
+        <%= f.label :instructions %>
+        <%= f.text_area :instructions, :class => 'form_instructions_textarea' %>
+      </p>
+      <p>
+        <i class="fa fa-camera"></i>
+        <%= f.label :image %>
+        <%= f.file_field :image %>
+        <i class="fa fa-paperclip"></i>
+      </p>
+      <p>
+        <i class="fa fa-comment"></i>
+        <%= f.label :comment %>
+        <%= f.text_area :comment, :class => 'form_comment_textarea' %>
+      </p>
 
-  <%= select_tag :cookbook_id, options_for_select(@current_user.cookbooks.map { |c| [c.title, c.id] }) %>
+
+      <!-- THis is for assigning a recipe straight to a cookbook. it is not complete yet -->
+      <p>
+        <i class="fa fa-book"></i>
+        <%= label_tag :cookbook_id, 'Add Recipe to a Cookbook:  ' %>
+        <%= select_tag :cookbook_id, options_for_select(@current_user.cookbooks.map { |c| [c.title, c.id] }) %>
+      </p>
 
 
 
-  <%= f.submit %>
+      <%= f.submit :class => 'create_edit_submit_button' %>
 
-  <div id="secret_ingredients"></div>
+      <div id="secret_ingredients"></div>
     </div>
   </div>
 

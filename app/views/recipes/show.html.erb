@@ -25,10 +25,10 @@
   </ul>
 </p>
 
-<p class="instructions_display">Instructions: <%= @recipe.instructions %></p>
+<p class="recipe_textarea_display">Instructions: <%= @recipe.instructions %></p>
 
 <% if @recipe.comment.present? %>
-  <p>Comments: <%= @recipe.comment %></p>
+  <p class="recipe_textarea_display">Comments: <%= @recipe.comment %></p>
 <% end %>
 
 
