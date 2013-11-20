@@ -309,7 +309,27 @@ label {
   color: red;
 }
 
+/*******************************************
+          COOKBOOK SHOW
+*******************************************/
 
-
-
-
+.thumbnail:hover {
+  background-color: rgba(255, 108, 73, 0.8);
+}
+/*.thumbnail:before {
+  background-color: inherit;
+  content: ' ';
+}*/
+.thumbnail{
+  /*height: 300px;*/
+  width: 100%;
+  text-align: center;
+  border: 10px solid ;
+  background-color: #0E9C6A   ;
+  transition: background-color 1s;
+}
+/*url(http://westsidecats.org/wp-content/uploads/2013/08/cookbook.gif)*/
+/*.thumbnail.img{
+  background: transparent;
+}
+*/
