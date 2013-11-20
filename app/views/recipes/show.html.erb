@@ -1,35 +1,62 @@
-<h1>Show Single Recipes</h1>
+<h1><%= @recipe.title %> </h1>
+
+      <div class="show_duration_servings">
+        <% if @recipe.duration.present? %>
+          <i class="fa fa-clock-o show_recipe_headers"></i>
+          <h3 class="show_recipe_headers">Duration: <%= @recipe.duration %></h3>
+        <% end %>
+        <% if @recipe.serving_size.present? %>
+          <i class="fa fa-cutlery show_recipe_headers"></i>
+          <h3 class="show_recipe_headers">Servings: <%= @recipe.serving_size %></h3>
+        <% end %>
+      </div>
 
 
-<h2><%= @recipe.title %> </h2>
-<% if @recipe.duration.present? %>
-  <p>Duration: <%= @recipe.duration %></p>
-<% end %>
-<% if @recipe.serving_size.present? %>
-  <p>Servings: <%= @recipe.serving_size %></p>
-<% end %>
-<div>
-  <% if @recipe.image.present? %>
-    <%= image_tag @recipe.image, :class => 'recipe' %>
-  <% end %>
-</div>
-<p>Ingredients:
-  <ul>
-    <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
-      <li>
-        <div class="show_amount"><%= recipe_ingredient.amount %></div>
-        <div class="show_measurement"><%= recipe_ingredient.measurement.unit %></div>
-        <div class="show_ingredient"><%= recipe_ingredient.ingredient.name %></div>
-      </li>
-    <% end %>
-  </ul>
-</p>
+      <div class="show_ingredients">
+        <i class="fa fa-leaf show_recipe_headers"></i>
+        <h3 class="show_recipe_headers">Ingredients:</h3>
+        <ul>
+          <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
+            <li class="show_ing_list">
+              <div class="row">
+                <div class="col-sm-1 col-md-1">
+                  <div class="show_ing show_amount"><%= '%g' % recipe_ingredient.amount %></div>
+                </div>
+                <div class="col-sm-3 col-md-3">
+                  <div class="show_ing show_measurement"><%= hide_na(recipe_ingredient.measurement.try(:unit)) %></div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                  <div class="show_ing show_ingredient"><%= recipe_ingredient.ingredient.name %></div>
+                </div>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
 
-<p class="recipe_textarea_display">Instructions: <%= @recipe.instructions %></p>
 
-<% if @recipe.comment.present? %>
-  <p class="recipe_textarea_display">Comments: <%= @recipe.comment %></p>
-<% end %>
+      <div>
+        <% if @recipe.image.present? %>
+          <%= image_tag @recipe.image, :class => 'show_recipe_image' %>
+        <% end %>
+      </div>
+
+
+      <i class="fa fa-pencil show_recipe_headers"></i>
+      <h3 class="show_recipe_headers">Instructions:</h3>
+      <div class="row">
+        <div class="col-sm-12 col-md-12">
+          <p class="recipe_textarea_display"> <%== @recipe.instructions.gsub("\n", "<br>") %></p>
+        </div>
+      </div>
+
+
+
+      <% if @recipe.comment.present? %>
+        <i class="fa fa-comment show_recipe_headers"></i>
+        <h3 class="show_recipe_headers">Comments:</h3>
+        <p class="recipe_textarea_display"> <%== @recipe.comment.gsub("\n", "<br>") %></p>
+      <% end %>
 
 
 

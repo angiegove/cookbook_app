@@ -68,12 +68,12 @@
                 <div class="row">
                   <div class="col-sm-2 col-md-2">
                     <div class="form_recipe_ingredients_indv form_amount">
-                      <%= text_field_tag "recipe_ingredients[#{recipe_ingredient.id}][amount]", recipe_ingredient.amount %>
+                      <%= text_field_tag "recipe_ingredients[#{recipe_ingredient.id}][amount]", '%g' % recipe_ingredient.amount %>
                     </div>
                   </div>
                   <div class="col-sm-3 col-md-3">
                     <div class="form_recipe_ingredients_indv form_measurement">
-                      <%= text_field_tag "recipe_ingredients[#{recipe_ingredient.id}][measurement_id]", recipe_ingredient.measurement.unit, :class => 'measurement_edit', :"data-measurement-id" => recipe_ingredient.measurement_id %>
+                      <%= text_field_tag "recipe_ingredients[#{recipe_ingredient.id}][measurement_id]", hide_na(recipe_ingredient.measurement.try(:unit)), :class => 'measurement_edit', :"data-measurement-id" => recipe_ingredient.measurement_id %>
                     </div>
                   </div>
                   <div class="col-sm-6 col-md-6">
@@ -91,20 +91,6 @@
             </li>
         <% end %>
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
       <p>
         <i class="fa fa-pencil"></i>
@@ -127,7 +113,7 @@
       <!-- THis is for assigning a recipe straight to a cookbook. it is not complete yet -->
       <p>
         <i class="fa fa-book"></i>
-        <%= label_tag :cookbook_id, 'Add Recipe to a Cookbook:  ' %>
+        <%= label_tag :cookbook_id, 'Add to a Cookbook:  ' %>
         <%= select_tag :cookbook_id, options_for_select(@current_user.cookbooks.map { |c| [c.title, c.id] }) %>
       </p>
 

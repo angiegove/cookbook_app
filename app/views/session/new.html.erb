@@ -1,31 +1,26 @@
+<h1>Sign In</h1>
+
 <div class="container">
   <div class="row">
     <div class="span12">
-        <%= form_tag('/login', :class => "form-horizontal") do %>
+        <%= form_tag('/login') do %>
         <fieldset>
-          <div id="legend">
-            <legend class="">Login</legend>
-          </div>
-          <div class="control-group">
+          <p>
             <!-- email -->
+            <i class="fa fa-envelope"></i>
             <label class="control-label"  for="email">Email</label>
-            <div class="controls">
-              <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
-            </div>
-          </div>
-          <div class="control-group">
+              <input type="text" id="email" name="email" >
+          </p>
+          <p>
             <!-- Password-->
+            <i class="fa fa-key"></i>
             <label class="control-label" for="password">Password</label>
-            <div class="controls">
-              <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
-            </div>
-          </div>
-          <div class="control-group">
+              <input type="password" id="password" name="password">
+          </p>
+          <p>
             <!-- Button -->
-            <div class="controls">
-              <button class="btn btn-success">Login</button>
-            </div>
-          </div>
+              <button class="general_submit_button">Login</button>
+          </p>
         </fieldset>
       <% end %>
     </div>
