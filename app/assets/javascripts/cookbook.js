@@ -15,24 +15,32 @@ var add_recipe_ingredient = function (event) {
   var ingredient = $('#ingredient_query').val();
   var ingredient_id = $('#ingredient_query').data('ingredient-id');
 
-  var str = '';
-  if (measurement) {
-      str = '<p>' + amount + ' ' + measurement + ' ' + ingredient + '</p>'
-  } else {
-      str = '<p>' + amount + ' ' + ingredient + '</p>'
-  }
-  var $ingredient = $(str);
+  // var str = '';
+  // if (measurement) {
+  //     str = '<p>' + amount + ' ' + measurement + ' ' + ingredient + '</p>'
+  // } else {
+  //     str = '<p>' + amount + ' ' + ingredient + '</p>'
+  // }
+  var ingredient_template = $('#recipe_ingredient_template').html();
+  var ingredient_templater = _.template(ingredient_template);
 
-  // Add the new ingredient as a hash to send to the server.
-  recipe_ingredient.push({
+  var ing = {
+      id: null,
       amount: amount,
       measurement: measurement_id,
-      ingredient: ingredient_id
-  });
+      unit: $('#measurement_query').val(),
+      ingredient: ingredient_id,
+      name: $('#ingredient_query').val()
+  };
+
+  // Add the new ingredient as a hash to send to the server.
+  recipe_ingredient.push(ing);
+
+  var $ingredient = $(ingredient_templater(ing));
 
   console.log(recipe_ingredient);
 
-  $('#recipe_ingredients_display').append($ingredient);
+  $('#recipe_ingredients_display').prepend($ingredient);
 
   // Clear out previous values
   $('#amount').val('').focus();
@@ -47,10 +55,27 @@ var add_recipe_ingredient = function (event) {
 
 $(document).ready( function () {
 
+  $('.delete_ingredient_button').click(function() {
+    // debugger;
+    var $this = $(this);
+    var $container = $this.closest('.form_recipe_ingredients_group');
+    var id = $container.data('recipe-ingredient-id');
+    $.ajax({
+      method: 'POST',
+      url: '/ingredients/' + id,
+      data: {
+        _method: 'delete'
+      }
+    }).done(function () {
+      $container.fadeOut();
+    });
+  });
+
   $('#recipe_duration').timepicker();
 
 // Below handles the autocomplete for adding an ingredient in the recipe form
-  $('#ingredient_query, .ingredient_edit').autocomplete({
+
+  $('#ingredient_query, .ingredient_edit').autococomplete({
     serviceUrl:'/ingredients_list',
     minChars:2,
     delimiter: /(,|;)\s*/, // regex or character
@@ -65,7 +90,7 @@ $(document).ready( function () {
     },
   });
 // Below handles the autocomplete for adding the measurement unit in the recipe form
-  $('#measurement_query, .measurement_edit').autocomplete({
+  $('#measurement_query, .measurement_edit').autococomplete({
     serviceUrl:'/measurements_list',
     minChars:1,
     delimiter: /(,|;)\s*/, // regex or character

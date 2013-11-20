@@ -13,6 +13,11 @@ body {
   margin: 0 auto;
 }
 
+li {
+  list-style-type: none;
+  margin-top: 30px;
+}
+
 
 /*******************************************
                 NAV
@@ -53,13 +58,14 @@ body {
 
 
 /*******************************************
-          FONT AWESOME
+          ICONS
 *******************************************/
 .fa {
   font-size: 1.9em;
   margin-right: 0.3em;
   color: rgba(15, 168, 115, 1);
 }
+
 
 
 /*******************************************
@@ -96,19 +102,35 @@ label {
   background-color: rgba(255, 108, 73, 1);
   text-align: center;
   border-radius: 8px;
-  width: 33%;
-  height: 50px;
+  width: 40%;
   border: none;
   margin: auto;
   display: block;
   color: rgba(8, 1, 94, 1);
-  font-size: 1.5em;
+  font-size: 1.9em;
+  padding: 0.4em;
 }
 
 .create_edit_submit_button:hover {
   background-color: rgba(242, 74, 58, 1);
 }
 
+.create_edit_submit_button i {
+  vertical-align: middle;
+  color: rgba(8, 1, 94, 1);
+}
+
+.controls {
+  font-size: 1.9em;
+  border: 0;
+  background-color: rgba(0, 0, 0, 0);
+  margin-top: 22px;
+  margin-left: -23px;
+  color: rgba(255, 108, 73, 1);
+}
+.controls:hover {
+  color: rgba(242, 74, 58, 1);
+}
 
 /*******************************************
           FORM NEW RECIPE
@@ -121,8 +143,12 @@ label {
 
 }
 
+.recipe_ingredients_display li {
+  text-decoration: none;
+}
+
 .form_recipe_ingredients_indv label {
-/*  text-align: center; <----- This doesn't work but I need to make the text center within its column */
+  margin-top: 20px;
 }
 
 .form_recipe_ingredients_indv {
@@ -135,14 +161,29 @@ label {
 
 }
 
+
+
 #add_ingredient_button {
   font-size: 1.9em;
   border: 0;
   background-color: rgba(0, 0, 0, 0);
-  margin-top: 22px;
+  margin-top: 40px;
   margin-left: -23px;
 }
 
+.delete_ingredient_button {
+  color: rgba(255, 108, 73, 1);
+  font-size: 1.5em;
+  margin-right: 0.3em;
+  border: 0;
+  background-color: rgba(0, 0, 0, 0);
+  margin-top: -30px;
+  margin-left: -1px;
+}
+
+.delete_ingredient_button:hover {
+  color: rgba(242, 74, 58, 1);
+}
 
 .add_ingredient_button {
   color: rgba(255, 108, 73, 1);
@@ -150,6 +191,15 @@ label {
 .add_ingredient_button:hover {
   color: rgba(242, 74, 58, 1);
 }
+
+
+
+.recipe_ingredient_js_display {
+  font-size: 1.8em;
+  margin-bottom: -8px;
+  margin-top: 6px;
+}
+
 
 .form_instructions_textarea {
   width: 100%;
@@ -243,11 +293,21 @@ label {
 .ui-timepicker-rtl dl dt{ float: right; clear: right; }
 .ui-timepicker-rtl dl dd { margin: 0 45% 10px 10px; }
 
+.ui-datepicker {
+  color: rgba(8, 1, 94, 1);
+}
 
+.ui-widget-header {
+  background-color: red;
+}
 
+.ui-datepicker-title {
+  color: rgba(8, 1, 94, 1);
+}
 
-
-
+.ui-datepicker-close .ui-state-default .ui-priorit {
+  color: red;
+}
 
 
 

@@ -30,22 +30,7 @@
 
       <p><i class="fa fa-leaf"></i><%= f.label "Ingredients" %></p>
 
-      <div id="recipe_ingredients_display">
-        <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
-          <li>
 
-            <div class="form_recipe_ingredients form_amount">
-              <%= text_field_tag :amount, recipe_ingredient.amount %>
-            </div>
-            <div class="form_recipe_ingredients form_measurement">
-              <%= text_field_tag :measurement_query, recipe_ingredient.measurement.unit, :class => 'measurement_edit' %>
-            </div>
-            <div class="form_recipe_ingredients form_ingredient">
-              <%= text_field_tag :ingredient_query, recipe_ingredient.ingredient.name, :class => 'ingredient_edit' %>
-            </div>
-          </li>
-        <% end %>
-      </div>
 
       <div class="form_recipe_ingredients_group">
         <div class="row">
@@ -73,6 +58,54 @@
         </div>
       </div>
 
+
+
+      <div id="recipe_ingredients_display">
+        <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
+
+            <li>
+              <div class="form_recipe_ingredients_group" data-recipe-ingredient-id="<%= recipe_ingredient.id %>">
+                <div class="row">
+                  <div class="col-sm-2 col-md-2">
+                    <div class="form_recipe_ingredients_indv form_amount">
+                      <%= text_field_tag :amount, recipe_ingredient.amount %>
+                    </div>
+                  </div>
+                  <div class="col-sm-3 col-md-3">
+                    <div class="form_recipe_ingredients_indv form_measurement">
+                      <%= text_field_tag :measurement_query, recipe_ingredient.measurement.unit, :class => 'measurement_edit' %>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-md-6">
+                    <div class="form_recipe_ingredients_indv form_ingredient">
+                      <%= text_field_tag :ingredient_query, recipe_ingredient.ingredient.name, :class => 'ingredient_edit' %>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-1 col-md-1 controls">
+  <!--                   <button type="button" class="edit_ingredient_button"><i class="fa fa-pencil-square-o"></i></button> -->
+                    <button type="button" class="delete_ingredient_button"><span class="glyphicon glyphicon-trash"></span></button>
+                  </div>
+                </div>
+              </div>
+            </li>
+        <% end %>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <p>
         <i class="fa fa-pencil"></i>
         <%= f.label :instructions %>
@@ -82,7 +115,7 @@
         <i class="fa fa-camera"></i>
         <%= f.label :image %>
         <%= f.file_field :image %>
-        <i class="fa fa-paperclip"></i>
+<!--         <i class="fa fa-paperclip"></i> -->
       </p>
       <p>
         <i class="fa fa-comment"></i>
@@ -99,13 +132,14 @@
       </p>
 
 
+
       <button class="create_edit_submit_button">
         <i class="fa fa-plus"></i>
-        <% if @recipe.persisted? %>
-          Update Recipe
-        <% else %>
-          Create Recipe
-        <% end %>
+          <% if @recipe.persisted? %>
+            Update Recipe
+          <% else %>
+            Create Recipe
+          <% end %>
       </button>
 
       <div id="secret_ingredients"></div>
@@ -117,12 +151,32 @@
 
 <script type="text/underscore-template" id="recipe_ingredient_template">
   <div class="recipe_ingredient" data-recipe-ingredient-id="{{= id }}">
-    <p>{{= amount }}</p>
-    <p>{{= unit }}</p>
-    <p>{{= ingredient }}</p>
-    <div class="controls">
-      <button class="edit">Edit</button>
-      <button class="delete">Delete</button>
+    <div class="form_recipe_ingredients_group">
+      <div class="row">
+        <div class="col-sm-2 col-md-2">
+          <div class="form_recipe_ingredients_indv form_amount">
+            <p class="recipe_ingredient_js_display">{{= amount }}</p>
+          </div>
+        </div>
+        <div class="col-sm-3 col-md-3">
+          <div class="form_recipe_ingredients_indv form_measurement">
+            <p class="recipe_ingredient_js_display">{{= unit }}</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-6">
+          <div class="form_recipe_ingredients_indv form_ingredient">
+            <p class="recipe_ingredient_js_display">{{= name }}</p>
+          </div>
+        </div>
+        <div class="col-sm-1 col-md-1">
+  <!--
+          <div class="controls">
+            <button type="button" class="edit_ingredient_button"><i class="fa fa-pencil-square-o"></i></button>
+            <button type="button" class="delete_ingredient_button"><span class="glyphicon glyphicon-trash"></span></button>
+          </div>
+  -->
+        </div>
+      </div>
     </div>
   </div>
 </script>
