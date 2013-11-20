@@ -116,12 +116,14 @@ label {
   font-size: 2em;
   border: 0;
   background-color: rgba(0, 0, 0, 0);
-
 }
 
 
 .add_ingredient_button {
   color: rgba(255, 108, 73, 1);
+  margin-top: 20px;
+  margin-left: -10px;
+  padding-left: 0;
 }
 
 
