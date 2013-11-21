@@ -11,6 +11,7 @@
 <%= link_to 'View the cooking template of this Cookbook', custom_cookbook_template_path(@cookbook.id, 'cooking') %>
 <%= link_to 'View the Om Nom Nom template of this Cookbook', custom_cookbook_template_path(@cookbook.id, 'omnomnom') %>
 
+<%= link_to 'View Joels template of this Cookbook', custom_cookbook_template_path(@cookbook.id, 'joels') %>
 <%= button_to 'Delete Cookbook', cookbook_path(@cookbook.id), :method => 'delete' %>
 
 <h2>Recipes</h2>
