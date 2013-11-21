@@ -10,10 +10,13 @@ class RecipesController < ApplicationController
 
   def create
     recipe = Recipe.create params[:recipe]
-    params[:new_recipe_ingredients].each do |id, ing|
-      ing['recipe_id'] = recipe.id
-      RecipeIngredient.create(ing)
+    if params[:new_recipe_ingredients].present?
+      params[:new_recipe_ingredients].each do |id, ing|
+        ing['recipe_id'] = recipe.id
+        RecipeIngredient.create(ing)
+      end
     end
+    @current_user.cookbooks.first.recipes << recipe
     redirect_to recipe_path(recipe.id)
   end
 
@@ -37,10 +40,11 @@ class RecipesController < ApplicationController
   def update
     recipe = Recipe.find params[:id]
     recipe.update_attributes params[:recipe]
-
-    params[:recipe_ingredients].each do |id, ing|
-      recipe_ingredient = RecipeIngredient.find id
-      recipe_ingredient.update_attributes(ing)
+    if params[:new_recipe_ingredients].present?
+      params[:recipe_ingredients].each do |id, ing|
+        recipe_ingredient = RecipeIngredient.find id
+        recipe_ingredient.update_attributes(ing)
+      end
     end
     if params[:new_recipe_ingredients].present?
       params[:new_recipe_ingredients].each do |id, ing|

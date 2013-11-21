@@ -101,6 +101,7 @@
         <i class="fa fa-camera"></i>
         <%= f.label :image %>
         <%= f.file_field :image %>
+        <div class="form_image_thumbnail"><%= image_tag(@recipe.image_url) if @recipe.image? %></div>
 <!--         <i class="fa fa-paperclip"></i> -->
       </p>
       <p>

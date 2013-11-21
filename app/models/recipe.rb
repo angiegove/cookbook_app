@@ -16,6 +16,8 @@
 class Recipe < ActiveRecord::Base
   attr_accessible :amount, :duration, :image, :instructions, :title, :comment, :cookbook_id, :serving_size
 
+  mount_uploader :image, ImageUploader
+
   has_and_belongs_to_many :cookbooks
   has_many :recipe_ingredients
   has_many :ingredients, :through => :recipe_ingredients
