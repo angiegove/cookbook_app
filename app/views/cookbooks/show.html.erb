@@ -7,24 +7,30 @@
   <div class= "col-sm-10 col-md-10">
     <h1><%= @cookbook.title %> </h1>
 
-      <p>Description: <%= @cookbook.description %></p>
+      <% if @cookbook.description.present? %>
+        <div class="description">
+          <h3>Description: </h3>
+          <p><%= @cookbook.description %></p>
+        </div>
+      <% end %>
 
       <!-- Need to change the routes so edit so doesnt need to go to a new page, can use the new form -->
 
-      <div class="row">
-        <div class="col-sm-4 col-md-4">
+      <div class="row template_section">
+        <div class="col-sm-4 col-md-4 template_text">
           <h2>Templates</h2>
-          <p>To view and email the pdf of your cookbook, choose from these templates:</p>
+          <p class="template_p">To view and email the pdf of your cookbook, choose from these templates:</p>
 
         </div>
-        <div class="col-sm-8 col-md-8 template_buttons">
-
-<%== link_to raw("<div class='thumbnail' style='background-image:url(/assets/cooking_template_rec)'></div>"), custom_cookbook_template_path(@cookbook.id, 'cooking') %>
-<%== link_to raw("<div class='thumbnail' style='background-image:url(/assets/color_template_rec)'></div>"), custom_cookbook_template_path(@cookbook.id, 'omnomnom') %>
-
-          <%= link_to 'Cooking', custom_cookbook_template_path(@cookbook.id, 'cooking'), :class => "template_button" %>
-          <%= link_to 'Om Nom Nom', custom_cookbook_template_path(@cookbook.id, 'omnomnom'), :class => "template_button" %>
-          <%= link_to 'The Joel', custom_cookbook_template_path(@cookbook.id, 'joels'), :class => "template_button" %>
+        <div class="col-sm-4 col-md-4">
+          <%= link_to custom_cookbook_template_path(@cookbook.id, 'cooking') do %>
+            <%= image_tag("/assets/cooking_template_rec", :class => "template_button") %>
+          <% end %>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <%= link_to custom_cookbook_template_path(@cookbook.id, 'omnomnom') do %>
+            <%= image_tag("/assets/color_template_rec", :class => "template_button") %>
+          <% end %>
 
         </div>
       </div>
@@ -32,7 +38,7 @@
 
       <h2>Recipes</h2>
       <div class="row">
-        <div class= "cookbook">
+        <div class="cookbook">
           <% @recipes.each do |recipe| %>
             <div class="col-sm-4 col-md-4">
               <div class="thumbnail">
@@ -48,12 +54,12 @@
   <div class="row">
     <div class="col-sm-12 col-md-12">
       <!-- Edit Button -->
-      <a href="/recipes/<%= @cookbook.id %>/edit" class="general_submit_button">
+      <a href="/cookbooks/<%= @cookbook.id %>/edit" class="general_submit_button">
         <i class="fa fa-pencil-square-o"></i> Edit Cookbook
       </a>
 
       <!-- Delete Button -->
-      <form action="/recipes/<%= @cookbook.id %>" class="button_to" method="post">
+      <form action="/cookbooks/<%= @cookbook.id %>" class="button_to" method="post">
         <div>
           <input name="_method" type="hidden" value="delete">
           <button class="general_submit_button" type="submit">
