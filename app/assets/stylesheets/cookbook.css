@@ -483,12 +483,16 @@ li.show_ing_list{
 
 .template_text {
   text-align: center;
-  margin-top: 10px;
 }
 
 .template_p {
   margin: 1em;
   text-align: left;
+}
+
+.template_p i {
+  color: rgba(8, 1, 94, 1);
+  font-size: 1.4em;
 }
 
 .description h3 {
