@@ -1,5 +1,5 @@
 class CookbookMailer < ActionMailer::Base
-  default from: 'wdi.sydney@gmail.com'
+  default from: 'angiewdi@gmail.com'
 
   def cookbook_email(cookbook, theme)
     @theme = theme

@@ -1,14 +1,17 @@
 
 <%= render :partial => @theme %>
 
-<%= link_to 'Download this Cookbook', custom_cookbook_template_path(@cookbook.id, @theme, :format => 'pdf') %>
+<%= link_to 'Download this Cookbook', custom_cookbook_template_path(@cookbook.id, @theme, :format => 'pdf'), :class => 'general_submit_button' %>
 
 <%= form_tag "/cookbooks/#{@cookbook.id}/email", :method => 'post' do %>
   <div class='form-group'>
-    <%= label_tag :email %>
-    <%= text_field_tag :email %>
+
+    <%= text_field_tag :email, nil, :placeholder => "example@email.com" %>
   </div>
-  <%= submit_tag %>
+  <button class="general_submit_button">
+    <i class="fa fa-envelope"></i>
+        Send Email
+  </button>
 <% end %>
 
 

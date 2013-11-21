@@ -499,7 +499,7 @@ a{
 }
 
 .circle {
-  margin-left: -40px;
+  margin-left: -40pwidth: 100%;x;
   font-family: 'Permanent Marker', cursive;
 /*font-family: 'Waiting for the Sunrise', cursive;*/
 }
@@ -511,6 +511,7 @@ a{
 #new_cookbook_link {
   display: inline-block;
 }
+
 
 
 /*******************************************
@@ -535,4 +536,28 @@ a{
   vertical-align: bottom;
   font-size: 1.1em;
 }
+
+
+/*******************************************
+          CAROUSEL
+*******************************************/
+
+.carousel .item {
+
+/*  height: 100%;
+*/  background-color: rgba(200, 200, 200, 1);
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center center;
+  overflow: hidden;
+  margin-bottom: 0;
+  /**/
+}
+
+.carousel {
+   margin-left: 50px;
+}
+
+
+
 
