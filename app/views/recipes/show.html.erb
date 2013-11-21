@@ -1,87 +1,95 @@
-<h1><%= @recipe.title %> </h1>
-
-  <div class="show_duration_servings">
-    <div class="show_duration_only">
-      <% if @recipe.duration.present? %>
-        <i class="fa fa-clock-o show_recipe_headers"></i>
-        <h3 class="show_recipe_headers">Duration (h:m): <%= @recipe.duration %></h3>
-      <% end %>
-    </div>
-    <div class="show_servings_only">
-      <% if @recipe.serving_size.present? %>
-        <i class="fa fa-cutlery show_recipe_headers"></i>
-        <h3 class="show_recipe_headers">Servings: <%= @recipe.serving_size %></h3>
-      <% end %>
-    </div>
+<div class="row">
+  <div class= "col-sm-2 col-md-2">
+    <%= render :partial => 'pages/navbar' %>
   </div>
 
-  <% if @recipe.ingredients.present? %>
+  <div class= "col-sm-10 col-md-10">
 
-    <div class="show_ingredients">
-      <i class="fa fa-leaf show_recipe_headers"></i>
-      <h3 class="show_recipe_headers">Ingredients:</h3>
-      <ul>
-        <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
-          <li class="show_ing_list">
-            <div class="row">
-              <div class="col-sm-1 col-md-1">
-                <div class="show_ing show_amount"><%= '%g' % recipe_ingredient.amount %></div>
-              </div>
-              <div class="col-sm-3 col-md-3">
-                <div class="show_ing show_measurement"><%= hide_na(recipe_ingredient.measurement.try(:unit)) %></div>
-              </div>
-              <div class="col-sm-6 col-md-6">
-                <div class="show_ing show_ingredient"><%= recipe_ingredient.ingredient.name %></div>
-              </div>
-            </div>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <h1><%= @recipe.title %> </h1>
 
-
-  <div>
-    <% if @recipe.image.present? %>
-      <%= image_tag @recipe.image, :class => 'show_recipe_image' %>
-    <% end %>
-  </div>
-
-  <% if @recipe.instructions.present? %>
-    <i class="fa fa-pencil show_recipe_headers"></i>
-    <h3 class="show_recipe_headers">Instructions:</h3>
-    <div class="row">
-      <div class="col-sm-12 col-md-12">
-        <p class="recipe_textarea_display"> <%== @recipe.instructions.gsub("\n", "<br>") %></p>
+      <div class="show_duration_servings">
+        <div class="show_duration_only">
+          <% if @recipe.duration.present? %>
+            <i class="fa fa-clock-o show_recipe_headers"></i>
+            <h3 class="show_recipe_headers">Duration (h:m): <%= @recipe.duration %></h3>
+          <% end %>
+        </div>
+        <div class="show_servings_only">
+          <% if @recipe.serving_size.present? %>
+            <i class="fa fa-cutlery show_recipe_headers"></i>
+            <h3 class="show_recipe_headers">Servings: <%= @recipe.serving_size %></h3>
+          <% end %>
+        </div>
       </div>
-    </div>
-  <% end %>
+
+      <% if @recipe.ingredients.present? %>
+
+        <div class="show_ingredients">
+          <i class="fa fa-leaf show_recipe_headers"></i>
+          <h3 class="show_recipe_headers">Ingredients:</h3>
+          <ul>
+            <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
+              <li class="show_ing_list">
+                <div class="row">
+                  <div class="col-sm-1 col-md-1">
+                    <div class="show_ing show_amount"><%= '%g' % recipe_ingredient.amount %></div>
+                  </div>
+                  <div class="col-sm-3 col-md-3">
+                    <div class="show_ing show_measurement"><%= hide_na(recipe_ingredient.measurement.try(:unit)) %></div>
+                  </div>
+                  <div class="col-sm-6 col-md-6">
+                    <div class="show_ing show_ingredient"><%= recipe_ingredient.ingredient.name %></div>
+                  </div>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+
+      <div>
+        <% if @recipe.image.present? %>
+          <%= image_tag @recipe.image, :class => 'show_recipe_image' %>
+        <% end %>
+      </div>
+
+      <% if @recipe.instructions.present? %>
+        <i class="fa fa-pencil show_recipe_headers"></i>
+        <h3 class="show_recipe_headers">Instructions:</h3>
+        <div class="row">
+          <div class="col-sm-12 col-md-12">
+            <p class="recipe_textarea_display"> <%== @recipe.instructions.gsub("\n", "<br>") %></p>
+          </div>
+        </div>
+      <% end %>
 
 
 
-  <% if @recipe.comment.present? %>
-    <i class="fa fa-comment show_recipe_headers"></i>
-    <h3 class="show_recipe_headers">Comments:</h3>
-    <p class="recipe_textarea_display"> <%== @recipe.comment.gsub("\n", "<br>") %></p>
-  <% end %>
+      <% if @recipe.comment.present? %>
+        <i class="fa fa-comment show_recipe_headers"></i>
+        <h3 class="show_recipe_headers">Comments:</h3>
+        <p class="recipe_textarea_display"> <%== @recipe.comment.gsub("\n", "<br>") %></p>
+      <% end %>
 
-<!-- Edit Button -->
-<a href="/recipes/<%= @recipe.id %>/edit" class="general_submit_button">
-  <i class="fa fa-pencil-square-o"></i> Edit Recipe
-</a>
+    <!-- Edit Button -->
+    <a href="/recipes/<%= @recipe.id %>/edit" class="general_submit_button">
+      <i class="fa fa-pencil-square-o"></i> Edit Recipe
+    </a>
 
-<!-- Delete Button -->
-<form action="/recipes/<%= @recipe.id %>" class="button_to" method="post">
-  <div>
-    <input name="_method" type="hidden" value="delete">
-    <button class="general_submit_button" type="submit" data-confirm ="Are you sure you want to delete this recipe?">
-      <span class="glyphicon glyphicon-trash"></span> Delete Recipe
-    </button>
+    <!-- Delete Button -->
+    <form action="/recipes/<%= @recipe.id %>" class="button_to" method="post">
+      <div>
+        <input name="_method" type="hidden" value="delete">
+        <button class="general_submit_button" type="submit" data-confirm ="Are you sure you want to delete this recipe?">
+          <span class="glyphicon glyphicon-trash"></span> Delete Recipe
+        </button>
+
+      </div>
+    </form>
 
   </div>
-</form>
-
-
+</div>
 
 
 

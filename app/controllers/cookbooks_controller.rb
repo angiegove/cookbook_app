@@ -17,7 +17,7 @@ class CookbooksController < ApplicationController
     @cookbook= Cookbook.new params[:cookbook]
     @cookbook.user = @current_user
     @cookbook.save
-    redirect_to user_path(@current_user)
+    redirect_to root_path
   end
 
   def show
@@ -66,7 +66,7 @@ class CookbooksController < ApplicationController
   def update
     @cookbook = Cookbook.find params[:id]
     if @cookbook.update_attributes params[:cookbook]
-      redirect_to cookbooks_path
+      redirect_to cookbook_path(@cookbook.id)
     else
       render :new
     end
@@ -75,7 +75,7 @@ class CookbooksController < ApplicationController
   def destroy
     cookbook = Cookbook.find params[:id]
     cookbook.destroy
-    redirect_to cookbooks_path
+    redirect_to root_path
   end
 
 end
