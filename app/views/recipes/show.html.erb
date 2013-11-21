@@ -65,11 +65,12 @@
     <p class="recipe_textarea_display"> <%== @recipe.comment.gsub("\n", "<br>") %></p>
   <% end %>
 
-
+<!-- Edit Button -->
 <a href="/recipes/<%= @recipe.id %>/edit" class="general_submit_button">
   <i class="fa fa-pencil-square-o"></i> Edit Recipe
 </a>
 
+<!-- Delete Button -->
 <form action="/recipes/<%= @recipe.id %>" class="button_to" method="post">
   <div>
     <input name="_method" type="hidden" value="delete">

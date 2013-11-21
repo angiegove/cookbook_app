@@ -1,28 +1,73 @@
 <div class="row">
-  <div class= "col-sm-3 col-md-3">
+  <div class= "col-sm-2 col-md-2">
 <%= render :partial => 'pages/navbar' %>
   </div>
 
-  <div class= "col-sm-9 col-md-9">
-    <h1>Cookbooks</h1>
-
-    <h2><%= @cookbook.title %> </h2>
+  <div class= "col-sm-10 col-md-10">
+    <h1><%= @cookbook.title %> </h1>
 
       <p>Description: <%= @cookbook.description %></p>
 
       <!-- Need to change the routes so edit so doesnt need to go to a new page, can use the new form -->
-      <%= link_to 'Edit Cookbook', edit_cookbook_path %>
 
-      <%= link_to 'View the cooking template of this Cookbook', custom_cookbook_template_path(@cookbook.id, 'cooking') %>
-      <%= link_to 'View the Om Nom Nom template of this Cookbook', custom_cookbook_template_path(@cookbook.id, 'omnomnom') %>
+      <div class="row">
+        <div class="col-sm-4 col-md-4">
+          <h2>Templates</h2>
+          <p>To view and email the pdf of your cookbook, choose from these templates:</p>
 
-      <%= link_to 'View Joels template of this Cookbook', custom_cookbook_template_path(@cookbook.id, 'joels') %>
-      <%= button_to 'Delete Cookbook', cookbook_path(@cookbook.id), :method => 'delete' %>
+        </div>
+        <div class="col-sm-8 col-md-8 template_buttons">
 
-    <h2>Recipes</h2>
-    <% @recipes.each do |recipe|%>
-    <li><%= link_to recipe.title, recipe_path(recipe) %></li>
-    <% end %>
+<%== link_to raw("<div class='thumbnail' style='background-image:url(/assets/cooking_template_rec)'></div>"), custom_cookbook_template_path(@cookbook.id, 'cooking') %>
+<%== link_to raw("<div class='thumbnail' style='background-image:url(/assets/color_template_rec)'></div>"), custom_cookbook_template_path(@cookbook.id, 'omnomnom') %>
+
+          <%= link_to 'Cooking', custom_cookbook_template_path(@cookbook.id, 'cooking'), :class => "template_button" %>
+          <%= link_to 'Om Nom Nom', custom_cookbook_template_path(@cookbook.id, 'omnomnom'), :class => "template_button" %>
+          <%= link_to 'The Joel', custom_cookbook_template_path(@cookbook.id, 'joels'), :class => "template_button" %>
+
+        </div>
+      </div>
+
+
+      <h2>Recipes</h2>
+      <div class="row">
+        <div class= "cookbook">
+          <% @recipes.each do |recipe| %>
+            <div class="col-sm-4 col-md-4">
+              <div class="thumbnail">
+                <div class="caption">
+                  <h2><%= link_to recipe.title, recipe_path(recipe.id) %></h2>
+                </div>
+              </div>
+             </div>
+           <% end %>
+        </div>
+      </div>
+
+
+
+
+
+
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <!-- Edit Button -->
+      <a href="/recipes/<%= @cookbook.id %>/edit" class="general_submit_button">
+        <i class="fa fa-pencil-square-o"></i> Edit Cookbook
+      </a>
+
+      <!-- Delete Button -->
+      <form action="/recipes/<%= @cookbook.id %>" class="button_to" method="post">
+        <div>
+          <input name="_method" type="hidden" value="delete">
+          <button class="general_submit_button" type="submit">
+            <span class="glyphicon glyphicon-trash"></span> Delete Recipe
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   </div>
 
 </div>
