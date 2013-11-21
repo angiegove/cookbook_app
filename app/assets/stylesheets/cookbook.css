@@ -256,15 +256,22 @@ li.show_ing_list{
 .show_recipe_image {
   width: 350px;
   float: right;
+  margin-top: 34px;
+  margin-left: 10px;
+}
+
+.show_duration_only {
+  text-align: center;
+}
+
+.show_servings_only {
+  text-align: right;
 }
 
 
-
-
-
-
-
-
+.show_ingredients {
+  margin-top: -56px;
+}
 
 
 
