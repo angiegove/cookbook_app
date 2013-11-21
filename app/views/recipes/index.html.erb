@@ -12,16 +12,24 @@
   </ol>
 < % end %> -->
 
+<div class="row">
+  <div class= "col-sm-2 col-md-2">
 
-  <div class= "row cookbook">
-    <h1>My Recipes</h1>
-    <% @recipes.each do |recipe| %>
-      <div class="col-sm-4 col-md-4">
-        <div class="thumbnail">
-          <div class="caption">
-            <h2><%= link_to recipe.title, recipe_path(recipe.id) %></h2>
+<%= render :partial => 'pages/navbar' %>
+  </div>
+
+  <div class= "col-sm-10 col-md-10">
+
+    <div class= "row cookbook">
+      <h1>My Recipes</h1>
+      <% @recipes.each do |recipe| %>
+        <div class="col-sm-4 col-md-4">
+          <div class="thumbnail">
+            <div class="caption">
+              <h2><%= link_to recipe.title, recipe_path(recipe.id) %></h2>
+            </div>
           </div>
-        </div>
-       </div>
-     <% end %>
+         </div>
+       <% end %>
+    </div>
   </div>

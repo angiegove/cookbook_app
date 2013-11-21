@@ -518,6 +518,7 @@ color: white;
 line-height: 150px;
 text-align: center;
 background: #000;
+margin-left: -30px;
 }
 
 nav a:hover{
@@ -539,6 +540,7 @@ color: rgba(8, 1, 94, 1);
 
 .navbar-nav {
 color: rgba(255, 142, 96, 1);
+margin-left: -30px;
 }
 
 span {
@@ -598,7 +600,7 @@ white-space: normal;
 
 
 /*******************************************
-          CAROUSEL
+          HOME PAGE
 *******************************************/
 
 .carousel{
@@ -621,6 +623,28 @@ white-space: normal;
    margin-left: 50px;
 }
 */
+.about_section{
+  border-top: 2px dashed grey;
+  margin-top: 10em;
+}
 
+.about_section h2{
+  font-family: 'Permanent Marker', cursive;
+  font-size: 32px;
+  display: inline;
+  margin: 82px;
+  color: black;
+}
 
+.about_section h1{
+  font-family: 'Permanent Marker', cursive;
+  font-size: 32px;
+  display: inline;
+  margin: 82px;
 
+}
+
+.about_section p{
+  margin-top: 20px;
+  color: #428bca;
+}
