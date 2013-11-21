@@ -32,8 +32,12 @@ h2 {
 
 h3 {
   font-family: 'Oldenburg', cursive;
-
 }
+
+h4 {
+  font-family: 'Oldenburg', cursive;
+}
+
 /*******************************************
                 NAV
 *******************************************/
@@ -81,11 +85,12 @@ h3 {
 *******************************************/
 form p {
   padding: 10px;
-  margin: 20px 10px;
+  margin: 20px 0;
+
 
 }
 
-input {
+input[type="text"], input[type="file"]  {
   font-size: 1.8em;
   padding: 10px;
   border: 1px solid rgba(15, 168, 115, 1);
@@ -117,7 +122,7 @@ label {
   color: rgba(8, 1, 94, 1);
   font-size: 1.9em;
   padding: 0.4em;
-  margin-bottom: 10px;
+  margin-top: 20px;
 }
 
 .general_submit_button:hover {
@@ -126,6 +131,11 @@ label {
 
 .general_submit_button i {
   vertical-align: middle;
+  color: rgba(8, 1, 94, 1);
+  font-size: 1.5em;
+}
+
+.general_submit_button .glyphicon {
   color: rgba(8, 1, 94, 1);
 }
 
@@ -252,6 +262,25 @@ label {
 *******************************************/
 
 
+.checkbox {
+  margin-left: 13px;
+ }
+
+.checkbox label {
+  font-size: 1em;
+ }
+
+.input-group-addon {
+  background-color: rgba(255, 142, 96, 1);
+  border: 1px solid rgba(15, 168, 115, 1);
+}
+
+.input-group input[type="text"] {
+  font-size: 1em;
+}
+
+.recipe_include_cookbook {
+}
 
 /*******************************************
           RECIPE DISPLAY

@@ -15,28 +15,30 @@
         </div>
       </div>
 
+      <% if @recipe.ingredients.present? %>
 
-      <div class="show_ingredients">
-        <i class="fa fa-leaf show_recipe_headers"></i>
-        <h3 class="show_recipe_headers">Ingredients:</h3>
-        <ul>
-          <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
-            <li class="show_ing_list">
-              <div class="row">
-                <div class="col-sm-1 col-md-1">
-                  <div class="show_ing show_amount"><%= '%g' % recipe_ingredient.amount %></div>
+        <div class="show_ingredients">
+          <i class="fa fa-leaf show_recipe_headers"></i>
+          <h3 class="show_recipe_headers">Ingredients:</h3>
+          <ul>
+            <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
+              <li class="show_ing_list">
+                <div class="row">
+                  <div class="col-sm-1 col-md-1">
+                    <div class="show_ing show_amount"><%= '%g' % recipe_ingredient.amount %></div>
+                  </div>
+                  <div class="col-sm-3 col-md-3">
+                    <div class="show_ing show_measurement"><%= hide_na(recipe_ingredient.measurement.try(:unit)) %></div>
+                  </div>
+                  <div class="col-sm-6 col-md-6">
+                    <div class="show_ing show_ingredient"><%= recipe_ingredient.ingredient.name %></div>
+                  </div>
                 </div>
-                <div class="col-sm-3 col-md-3">
-                  <div class="show_ing show_measurement"><%= hide_na(recipe_ingredient.measurement.try(:unit)) %></div>
-                </div>
-                <div class="col-sm-6 col-md-6">
-                  <div class="show_ing show_ingredient"><%= recipe_ingredient.ingredient.name %></div>
-                </div>
-              </div>
-            </li>
-          <% end %>
-        </ul>
-      </div>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
 
       <div>
@@ -45,14 +47,15 @@
         <% end %>
       </div>
 
-
-      <i class="fa fa-pencil show_recipe_headers"></i>
-      <h3 class="show_recipe_headers">Instructions:</h3>
-      <div class="row">
-        <div class="col-sm-12 col-md-12">
-          <p class="recipe_textarea_display"> <%== @recipe.instructions.gsub("\n", "<br>") %></p>
+      <% if @recipe.instructions.present? %>
+        <i class="fa fa-pencil show_recipe_headers"></i>
+        <h3 class="show_recipe_headers">Instructions:</h3>
+        <div class="row">
+          <div class="col-sm-12 col-md-12">
+            <p class="recipe_textarea_display"> <%== @recipe.instructions.gsub("\n", "<br>") %></p>
+          </div>
         </div>
-      </div>
+      <% end %>
 
 
 
@@ -64,5 +67,27 @@
 
 
 
-<%= link_to 'Edit Recipe', edit_recipe_path, :class => "general_submit_button" %>
-<%= button_to 'Delete Recipe', recipe_path(@recipe.id), :method => 'delete', :class => "general_submit_button" %>
+
+
+<a href="/recipes/:id/edit" class="general_submit_button">
+  <i class="fa fa-plus"></i>
+  Edit Recipe
+</a>
+
+
+
+
+
+<form action="/recipes/<%= @recipe.id %>" class="button_to" method="post">
+  <div>
+    <input name="_method" type="hidden" value="delete">
+    <button class="general_submit_button" type="submit">
+      <span class="glyphicon glyphicon-trash"></span> Delete Recipe
+    </button>
+  </div>
+</form>
+
+
+
+
+

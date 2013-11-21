@@ -45,11 +45,16 @@ class RecipesController < ApplicationController
         recipe_ingredient = RecipeIngredient.find id
         recipe_ingredient.update_attributes(ing)
       end
-    end
-    if params[:new_recipe_ingredients].present?
       params[:new_recipe_ingredients].each do |id, ing|
         ing['recipe_id'] = recipe.id
         RecipeIngredient.create(ing)
+      end
+    end
+    # Create a new cookbook and attach recipe if requested
+    if params[:new_cookbook_title].present?
+      new_cookbook = Cookbook.create :title => params[:new_cookbook_title], :user_id => @current_user.id
+      if params[:new_cookbook_include].present?
+        new_cookbook.recipes << recipe
       end
     end
     redirect_to recipe_path(recipe.id)
