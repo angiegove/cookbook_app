@@ -1,14 +1,18 @@
 <h1><%= @recipe.title %> </h1>
 
       <div class="show_duration_servings">
-        <% if @recipe.duration.present? %>
-          <i class="fa fa-clock-o show_recipe_headers"></i>
-          <h3 class="show_recipe_headers">Duration: <%= @recipe.duration %></h3>
-        <% end %>
-        <% if @recipe.serving_size.present? %>
-          <i class="fa fa-cutlery show_recipe_headers"></i>
-          <h3 class="show_recipe_headers">Servings: <%= @recipe.serving_size %></h3>
-        <% end %>
+        <div class="show_duration_only">
+          <% if @recipe.duration.present? %>
+            <i class="fa fa-clock-o show_recipe_headers"></i>
+            <h3 class="show_recipe_headers">Duration (h:m): <%= @recipe.duration %></h3>
+          <% end %>
+        </div>
+        <div class="show_servings_only">
+          <% if @recipe.serving_size.present? %>
+            <i class="fa fa-cutlery show_recipe_headers"></i>
+            <h3 class="show_recipe_headers">Servings: <%= @recipe.serving_size %></h3>
+          <% end %>
+        </div>
       </div>
 
 
