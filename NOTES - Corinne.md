@@ -23,7 +23,7 @@
 - change the clicking area for cookbook and recipes to be the entire box
 - change the columns for the home page and all index pages to sm and md column
 - add confirmation when deleting recipe and cookbook
-- neeed edit profile link on nave
+
 -
 -
 -
