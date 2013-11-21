@@ -226,6 +226,24 @@ label {
   font-size: 1.4em;
 }
 
+#recipe_image {
+  display: block;
+  padding: 18px;
+  vertical-align: bottom;
+  font-size: 1.1em;
+}
+
+#recipe_image button{
+  color:red;
+}
+
+.form_image_thumbnail img {
+  height: 61px;
+  float: right;
+  margin-top: -93px;
+  margin-right: 322px;
+}
+
 /*******************************************
           RECIPE DISPLAY
 *******************************************/
