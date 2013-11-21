@@ -4,6 +4,7 @@
   <title>CookbookApp</title>
   <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Dosis|Ubuntu|Josefin+Sans|Ubuntu+Condensed|Dancing+Script:700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Permanent+Marker|Waiting+for+the+Sunrise' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
@@ -11,36 +12,54 @@
 </head>
 <body class="<%= @pdf_version if @pdf_version.present? %>">
 
-
+<!--
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
-      <div class="navbar-header">
+
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-      <%= link_to 'Home', root_path, :class => 'navbar-brand' %>
+      < % = link_to 'Home', root_path, :class => 'navbar-brand' %>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <% if (!@current_user) %>
-          <li><%= link_to('About', about_path) %></li>
-          <li><%= link_to('New User', new_user_path) %></li>
-          <li><%= link_to('Recipes', recipes_path) %></li>
-          <% end %>
-          <% if @current_user %>
-          <li><%= link_to('New Cookbook', new_cookbook_path) %></li>
-          <li><%= link_to('New Recipe', new_recipe_path) %></li>
-          <li><%= link_to('Cookbooks', cookbooks_path) %></li>
-          <% end %>
-          <%== authentication_menu %>
+          < % if (!@current_user) %>
+          <li>< %= link_to('About', about_path) %></li>
+          <li><  %= link_to('New User', new_user_path) %></li>
+          <li>< %= link_to('Recipes', recipes_path) %></li>
+          < % end %>
+          < % if @current_user %>
+          <li>< %= link_to('New Cookbook', new_cookbook_path) %></li>
+          <li>< %= link_to('New Recipe', new_recipe_path) %></li>
+          <li>< %= link_to('Cookbooks', cookbooks_path) %></li>
+          < % end %>
+          < %== authentication_menu %>
 
 
        </ul>
       </div><!--/.nav-collapse -->
-    </div> <!-- .container -->
-  </div>
+    <!-- </div> .container
+  </div> -->
+  <div class="circle"><a href="/"><span>Edible Love</span></a></div>
+
+  <nav>
+    <ul class="nav navbar-nav">
+      <%== authentication_menu %>
+      <% if (!@current_user) %>
+      <li id="about_link"><%= link_to('About', about_path) %></li>
+      <li id="new_user_link"><%= link_to('New User', new_user_path) %></li>
+      <li id="recipes_link"><%= link_to('Recipes', recipes_path) %></li>
+      <% end %>
+      <% if @current_user %>
+      <li id="new_cookbook_link"><%= link_to('New Cookbook', new_cookbook_path) %></li>
+      <li id="new_recipes_link"><%= link_to('New Recipe', new_recipe_path) %></li>
+      <li id="cookbooks_link"><%= link_to('Cookbooks', cookbooks_path) %></li>
+      <% end %>
+
+    </ul>
+  </nav>
 
   <div class="container">
     <% if flash[:notice].present? %>
