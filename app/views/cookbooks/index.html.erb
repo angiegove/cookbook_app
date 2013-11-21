@@ -15,7 +15,7 @@
   <div class= "cookbook">
     <h1>My Cookbooks</h1>
     <% @cookbooks.each do |cookbook| %>
-      <div class="col-md-4">
+      <div class="col-sm-4 col-md-4">
         <div class="thumbnail">
           <div class="caption">
             <h2><%= link_to cookbook.title, cookbook_path(cookbook.id) %></h2>

@@ -115,8 +115,18 @@
       <p>
         <i class="fa fa-book"></i>
         <%= label_tag :cookbook_id, 'Add to a Cookbook:  ' %>
-        <%= select_tag :cookbook_id, options_for_select(@current_user.cookbooks.map { |c| [c.title, c.id] }) %>
-      </p>
+          <% @current_user.cookbooks.each do |cookbook| %>
+            <% next if cookbook.title == "All of my receipes" %>
+              <%= check_box_tag "cookbook[]", cookbook.id, cookbook.id.in?(@recipe.cookbook_ids) %><%= cookbook.title %>
+          <% end %>
+
+
+
+<!--         < %= select_tag :cookbook_id, options_for_select(@current_user.cookbooks.map { |c| [c.title, c.id] }) %>
+ -->      </p>
+
+
+
 
 
 
