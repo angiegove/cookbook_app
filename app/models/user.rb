@@ -18,5 +18,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :image, :name, :password_digest, :cookbook_id, :password, :password_confirmation, :is_admin
 
+  mount_uploader :image, ImageUploader
+
   has_many :cookbooks
 end
