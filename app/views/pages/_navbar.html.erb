@@ -5,17 +5,17 @@
  --><div class= "col-sm-4 col-md-4">
       <nav>
         <div class="circle"><a href="/"><span>Edible Love</span></a></div>
-        <ul class="nav navbar-nav">
-          <%== authentication_menu %>
-          <% if (!@current_user) %>
-          <li id="new_user_link"><%= link_to('Sign Up', new_user_path) %></li>
-          <% end %>
-          <% if @current_user %>
-          <li id="new_cookbook_link"><%= link_to('New Cookbook', new_cookbook_path) %></li>
-          <li id="new_recipes_link"><%= link_to('New Recipe', new_recipe_path) %></li>
-          <li id="cookbooks_link"><%= link_to('Cookbooks', cookbooks_path) %></li>
-          <% end %>
-        </ul>
+          <ul class="nav navbar-nav">
+            <%== authentication_menu %>
+            <% if (!@current_user) %>
+            <li id="new_user_link"><%= link_to('Sign Up', new_user_path) %></li>
+            <% end %>
+            <% if @current_user %>
+            <li id="new_cookbook_link"><%= link_to('New Cookbook', new_cookbook_path) %></li>
+            <li id="new_recipes_link"><%= link_to('New Recipe', new_recipe_path) %></li>
+            <li id="cookbooks_link"><%= link_to('Cookbooks', cookbooks_path) %></li>
+            <% end %>
+          </ul>
         </div>
-
-     </nav>
+      </nav>
+    </div>

@@ -1,23 +1,29 @@
-<h1>Cookbooks</h1>
+<div class="row">
+  <div class= "col-sm-3 col-md-3">
+<%= render :partial => 'pages/navbar' %>
+  </div>
 
+  <div class= "col-sm-9 col-md-9">
+    <h1>Cookbooks</h1>
 
-<h2><%= @cookbook.title %> </h2>
+    <h2><%= @cookbook.title %> </h2>
 
-<p>Description: <%= @cookbook.description %></p>
+      <p>Description: <%= @cookbook.description %></p>
 
-<!-- Need to change the routes so edit so doesnt need to go to a new page, can use the new form -->
-<%= link_to 'Edit Cookbook', edit_cookbook_path %>
+      <!-- Need to change the routes so edit so doesnt need to go to a new page, can use the new form -->
+      <%= link_to 'Edit Cookbook', edit_cookbook_path %>
 
-<%= link_to 'View the cooking template of this Cookbook', custom_cookbook_template_path(@cookbook.id, 'cooking') %>
-<%= link_to 'View the Om Nom Nom template of this Cookbook', custom_cookbook_template_path(@cookbook.id, 'omnomnom') %>
+      <%= link_to 'View the cooking template of this Cookbook', custom_cookbook_template_path(@cookbook.id, 'cooking') %>
+      <%= link_to 'View the Om Nom Nom template of this Cookbook', custom_cookbook_template_path(@cookbook.id, 'omnomnom') %>
 
-<%= link_to 'View Joels template of this Cookbook', custom_cookbook_template_path(@cookbook.id, 'joels') %>
-<%= button_to 'Delete Cookbook', cookbook_path(@cookbook.id), :method => 'delete' %>
+      <%= link_to 'View Joels template of this Cookbook', custom_cookbook_template_path(@cookbook.id, 'joels') %>
+      <%= button_to 'Delete Cookbook', cookbook_path(@cookbook.id), :method => 'delete' %>
 
-<h2>Recipes</h2>
-<% @recipes.each do |recipe|%>
-<li><%= link_to recipe.title, recipe_path(recipe) %></li>
-<% end %>
+    <h2>Recipes</h2>
+    <% @recipes.each do |recipe|%>
+    <li><%= link_to recipe.title, recipe_path(recipe) %></li>
+    <% end %>
+  </div>
 
-
+</div>
 
