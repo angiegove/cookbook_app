@@ -38,6 +38,12 @@ h4 {
   font-family: 'Oldenburg', cursive;
 }
 
+a:hover {
+  text-decoration: none;
+  color: rgba(8, 1, 94, 1);
+
+}
+
 /*******************************************
                 NAV
 *******************************************/
@@ -90,7 +96,7 @@ form p {
 
 }
 
-input[type="text"], input[type="file"]  {
+input[type="text"], input[type="file"], input[type="password"]  {
   font-size: 1.8em;
   padding: 10px;
   border: 1px solid rgba(15, 168, 115, 1);
@@ -227,6 +233,23 @@ label {
   height: 5em;
 }
 
+.form_image_thumbnail img {
+  height: 61px;
+  float: right;
+  margin-top: -93px;
+  margin-right: 322px;
+}
+
+
+
+
+
+
+
+
+
+
+
 #cookbook_id {
   width: 240px;
   height: 34px;
@@ -248,12 +271,6 @@ label {
   color:red;
 }
 
-.form_image_thumbnail img {
-  height: 61px;
-  float: right;
-  margin-top: -93px;
-  margin-right: 322px;
-}
 
 
 
@@ -493,5 +510,29 @@ a{
 
 #new_cookbook_link {
   display: inline-block;
+}
+
+
+/*******************************************
+          USER NEW EDIT PAGE
+*******************************************/
+
+
+
+/*#cookbook_id {
+  width: 240px;
+  height: 34px;
+  overflow: hidden;
+  border: 1px solid rgba(15, 168, 115, 1);
+  background-color: rgba(15, 168, 115, 0.5);
+  color: rgba(8, 1, 94, 1);
+  font-size: 1.4em;
+}*/
+
+#user_image {
+  display: block;
+  padding: 18px;
+  vertical-align: bottom;
+  font-size: 1.1em;
 }
 
