@@ -553,7 +553,8 @@ a{
 }
 
 .circle {
-  margin-left: -40pwidth: 100%;
+  margin-left: -40px;
+  /*width: 100%;*/
   font-family: 'Permanent Marker', cursive;
 /*font-family: 'Waiting for the Sunrise', cursive;*/
 }
