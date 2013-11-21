@@ -422,16 +422,24 @@ width: 160px;
 margin-left: -90px;
 }
 
+.navbar-nav li:hover{
+  color: rgba(255, 142, 96, 1);
+}
+
 nav li {
 display: block;
 margin-bottom: -35px;
 line-height: 1.3em;
 font-family: 'Permanent Marker', cursive;
 margin-left: -35px;
+width: 100%;
+color: color: rgba(8, 1, 94, 1);
 /*font-family: 'Waiting for the Sunrise', cursive;*/
 
 }
-
+.navbar-nav {
+color: rgba(255, 142, 96, 1);
+}
 span {
 text-decoration: none;
 color: white;

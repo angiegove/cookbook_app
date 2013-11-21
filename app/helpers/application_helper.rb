@@ -7,9 +7,9 @@ module ApplicationHelper
       end
       links += "<li>#{link_to("Welcome #{@current_user.name}", user_path(@current_user))}</li>"
       links += "<li>#{link_to('Logout ', login_path, :method => 'delete',
-                                :confirm => 'Are you sure>') }</li>"
+                                :confirm => 'Are you sure you want to log out?') }</li>"
     else
-      links += "<li>#{link_to('User Login', login_path) }</li>"
+      links += "<li>#{link_to('Login', login_path) }</li>"
     end
   end
 
