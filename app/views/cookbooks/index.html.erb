@@ -10,18 +10,22 @@
     </ul>
   </ol>
 < % end %> -->
-
-<%= render :partial => 'pages/navbar' %>
-  <div class= "cookbook">
-    <h1>My Cookbooks</h1>
-    <% @cookbooks.each do |cookbook| %>
-      <div class="col-sm-4 col-md-4">
-        <div class="thumbnail">
-          <div class="caption">
-            <h2><%= link_to cookbook.title, cookbook_path(cookbook.id) %></h2>
-            <p><%= cookbook.description %></p>
+<div class="row">
+  <div class= "col-sm-2 col-md-2">
+    <%= render :partial => 'pages/navbar' %>
+  </div>
+  <div class= "col-sm-10 col-md-10">
+    <div class= "cookbook">
+      <h1>My Cookbooks</h1>
+      <% @cookbooks.each do |cookbook| %>
+        <div class="col-sm-4 col-md-4">
+          <div class="thumbnail">
+            <div class="caption">
+              <h2><%= link_to cookbook.title, cookbook_path(cookbook.id) %></h2>
+              <p><%= cookbook.description %></p>
+            </div>
           </div>
-        </div>
-       </div>
-     <% end %>
+         </div>
+       <% end %>
+    </div>
   </div>
