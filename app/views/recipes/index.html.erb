@@ -13,10 +13,10 @@
 < % end %> -->
 
 
-  <div class= "cookbook">
+  <div class= "row cookbook">
     <h1>My Recipes</h1>
     <% @recipes.each do |recipe| %>
-      <div class="col-md-4">
+      <div class="col-sm-4 col-md-4">
         <div class="thumbnail">
           <div class="caption">
             <h2><%= link_to recipe.title, recipe_path(recipe.id) %></h2>
