@@ -50,24 +50,25 @@
         </div>
       </div>
 
-  <div class="row">
-    <div class="col-sm-12 col-md-12">
-      <!-- Edit Button -->
-      <a href="/cookbooks/<%= @cookbook.id %>/edit" class="general_submit_button">
-        <i class="fa fa-pencil-square-o"></i> Edit Cookbook
-      </a>
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        <!-- Edit Button -->
+        <a href="/cookbooks/<%= @cookbook.id %>/edit" class="general_submit_button">
+          <i class="fa fa-pencil-square-o"></i> Edit Cookbook
+        </a>
 
-      <!-- Delete Button -->
-      <form action="/cookbooks/<%= @cookbook.id %>" class="button_to" method="post">
-        <div>
-          <input name="_method" type="hidden" value="delete">
-          <button class="general_submit_button" type="submit" data-confirm ="Are you sure you want to delete this cookbook?">
-            <span class="glyphicon glyphicon-trash"></span> Delete Recipe
-          </button>
-        </div>
-      </form>
+        <!-- Delete Button -->
+        <form action="/cookbooks/<%= @cookbook.id %>" class="button_to" method="post">
+          <div>
+            <input name="_method" type="hidden" value="delete">
+            <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+            <button class="general_submit_button" type="submit" data-confirm ="Are you sure you want to delete this cookbook?">
+              <span class="glyphicon glyphicon-trash"></span> Delete Recipe
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
 
   </div>
 

@@ -250,29 +250,6 @@ label {
 
 
 
-#cookbook_id {
-  width: 240px;
-  height: 34px;
-  overflow: hidden;
-  border: 1px solid rgba(15, 168, 115, 1);
-  background-color: rgba(15, 168, 115, 0.5);
-  color: rgba(8, 1, 94, 1);
-  font-size: 1.4em;
-}
-
-#recipe_image {
-  display: block;
-  padding: 18px;
-  vertical-align: bottom;
-  font-size: 1.1em;
-}
-
-#recipe_image button{
-  color:red;
-}
-
-
-
 
 /*******************************************
           CHECKBOXES
@@ -298,6 +275,52 @@ label {
 
 .recipe_include_cookbook {
 }
+
+
+
+/*******************************************
+          IMAGE UPLOAD FORM
+*******************************************/
+
+
+
+#cookbook_id {
+  width: 240px;
+  height: 34px;
+  overflow: hidden;
+  border: 1px solid rgba(15, 168, 115, 1);
+  background-color: rgba(15, 168, 115, 0.5);
+  color: rgba(8, 1, 94, 1);
+  font-size: 1.4em;
+}
+
+#recipe_image {
+  display: block;
+  padding: 18px;
+  vertical-align: bottom;
+  font-size: 1.1em;
+}
+
+#recipe_image button{
+  color:red;
+}
+
+
+
+#user_image {
+  display: block;
+  padding: 18px;
+  vertical-align: bottom;
+  font-size: 1.1em;
+}
+
+#cookbook_image {
+  display: block;
+  padding: 18px;
+  vertical-align: bottom;
+  font-size: 1.1em;
+}
+
 
 /*******************************************
           RECIPE DISPLAY
@@ -573,30 +596,6 @@ white-space: nowrap;
 
 .navbar-nav > li.nav_user_name > a {
 white-space: normal;
-}
-
-
-/*******************************************
-          USER NEW EDIT PAGE
-*******************************************/
-
-
-
-/*#cookbook_id {
-  width: 240px;
-  height: 34px;
-  overflow: hidden;
-  border: 1px solid rgba(15, 168, 115, 1);
-  background-color: rgba(15, 168, 115, 0.5);
-  color: rgba(8, 1, 94, 1);
-  font-size: 1.4em;
-}*/
-
-#user_image {
-  display: block;
-  padding: 18px;
-  vertical-align: bottom;
-  font-size: 1.1em;
 }
 
 

@@ -68,7 +68,7 @@
                 <div class="row">
                   <div class="col-sm-2 col-md-2">
                     <div class="form_recipe_ingredients_indv form_amount">
-                      <%= text_field_tag "recipe_ingredients[#{recipe_ingredient.id}][amount]", '%g' % recipe_ingredient.amount %>
+                      <%= text_field_tag "recipe_ingredients[#{recipe_ingredient.id}][amount]", '%g' % (recipe_ingredient.amount || 1) %>
                     </div>
                   </div>
                   <div class="col-sm-3 col-md-3">

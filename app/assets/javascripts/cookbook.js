@@ -15,6 +15,10 @@ var add_recipe_ingredient = function (event) {
   var ingredient = $('#ingredient_query').val();
   var ingredient_id = $('#ingredient_query').data('ingredient-id');
 
+  if (! ingredient) {
+    return;
+  }
+
   // var str = '';
   // if (measurement) {
   //     str = '<p>' + amount + ' ' + measurement + ' ' + ingredient + '</p>'
@@ -109,6 +113,7 @@ $(document).ready( function () {
 
 
   $('#new_recipe, .edit_recipe').submit(function () {
+    $('#add_ingredient_button').trigger('click');
     $.each(recipe_ingredient, function (i, ingredient) {
       var $amount = $('<input type="hidden" name="new_recipe_ingredients[' + i + '][amount]">');
       var $measurement = $('<input type="hidden" name="new_recipe_ingredients[' + i + '][measurement_id]">');
