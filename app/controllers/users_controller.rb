@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   def update
     @user = @current_user
     if @user.update_attributes params[:user]
-      redirect_to root_path(@current_user)
+      redirect_to root_path
     else
       render :new
     end
