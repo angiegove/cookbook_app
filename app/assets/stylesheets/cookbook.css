@@ -452,10 +452,10 @@ li.show_ing_list{
   margin-top: 20px;
 }
 
-/*.template_button {
-  display: block;
+.template_button {
+  display: inline;
   width: 50px;
-}*/
+}
 
 
 /*******************************************
