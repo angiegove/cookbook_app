@@ -441,6 +441,12 @@ li.show_ing_list{
   text-decoration: none;
   color: white;
 }
+/*******************************************
+          NEW COOKBOOK
+*******************************************/
+.new_cookbook{
+  margin-left: 50px;
+}
 
 
 
@@ -473,16 +479,7 @@ text-align: center;
 background: #000;
 }
 
-
-nav {
-/*position: absolute;
-top: -10px;
-left: 0;
-width: 160px;
-margin-left: -90px;*/
-}
-
-.navbar-nav li:hover{
+nav a:hover{
   color: rgba(255, 142, 96, 1);
 }
 
@@ -513,7 +510,7 @@ a{
 }
 
 .circle {
-  margin-left: -40pwidth: 100%;x;
+  margin-left: -40pwidth: 100%;
   font-family: 'Permanent Marker', cursive;
 /*font-family: 'Waiting for the Sunrise', cursive;*/
 }
@@ -562,6 +559,10 @@ white-space: normal;
 /*******************************************
           CAROUSEL
 *******************************************/
+
+.carousel{
+  margin-top: 50px;
+}
 
 .carousel .item {
 
