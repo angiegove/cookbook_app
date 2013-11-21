@@ -28,7 +28,9 @@
       <h2><%= recipe.title %> </h2>
         <p>Duration: <%= recipe.duration %></p>
         <p>Servings: <%= recipe.serving_size %></p>
-        <%= image_tag recipe.image, :class => 'recipe_picture' %>
+        <% if recipe.image? %>
+          <%= image_tag recipe.image, :class => 'recipe_picture' %>
+        <% end %>
 
       <h2>Ingredients:</h2>
           <% recipe.recipe_ingredients.each do |ingredient| %>
