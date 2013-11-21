@@ -59,6 +59,7 @@ h4 {
   color: rgba(200, 200, 200, 1);
   font-size: 1em;
 }
+
 .navbar-inverse .navbar-nav > li > a:hover{
   text-shadow: 0 0 15px rgba(200, 200, 200, 1);
 }
@@ -462,13 +463,15 @@ line-height: 1.3em;
 font-family: 'Permanent Marker', cursive;
 margin-left: -35px;
 width: 100%;
-color: color: rgba(8, 1, 94, 1);
+color: rgba(8, 1, 94, 1);
 /*font-family: 'Waiting for the Sunrise', cursive;*/
 
 }
+
 .navbar-nav {
 color: rgba(255, 142, 96, 1);
 }
+
 span {
 text-decoration: none;
 color: white;

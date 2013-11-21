@@ -38,10 +38,11 @@ class CookbooksController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        cookbook = render_to_string(:action => "cookbook_template.html.erb", :layout => false)
+        cookbook = render_to_string(:action => "cookbook_template.html.erb", :layout => false, :formats => [:html], :handler => [:erb])
         cookbook = PDFKit.new(cookbook)
         cookbook = cookbook.to_pdf
         send_data cookbook, :filename => "cookbook.pdf", :type => 'application/pdf'
+        return
       end
     end
 
