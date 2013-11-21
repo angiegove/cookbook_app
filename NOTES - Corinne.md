@@ -26,7 +26,7 @@
 
 -
 -
--
+- cookbook descriptions are being displayed even though they aren't suppose to
 -
 -
 -
