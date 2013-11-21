@@ -32,7 +32,7 @@
               <li class="show_ing_list">
                 <div class="row">
                   <div class="col-sm-1 col-md-1">
-                    <div class="show_ing show_amount"><%= '%g' % recipe_ingredient.amount %></div>
+                    <div class="show_ing show_amount"><%= '%g' % recipe_ingredient.amount if recipe_ingredient.amount %></div>
                   </div>
                   <div class="col-sm-3 col-md-3">
                     <div class="show_ing show_measurement"><%= hide_na(recipe_ingredient.measurement.try(:unit)) %></div>

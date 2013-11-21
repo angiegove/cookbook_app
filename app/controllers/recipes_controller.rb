@@ -13,7 +13,7 @@ class RecipesController < ApplicationController
     if params[:new_recipe_ingredients].present?
       params[:new_recipe_ingredients].each do |id, ing|
         ing['recipe_id'] = recipe.id
-        RecipeIngredient.create(ing)
+        RecipeIngredient.create(ing) if ing[:ingredient_id]
       end
     end
     @current_user.cookbooks.first.recipes << recipe
@@ -47,7 +47,7 @@ class RecipesController < ApplicationController
       end
       params[:new_recipe_ingredients].each do |id, ing|
         ing['recipe_id'] = recipe.id
-        RecipeIngredient.create(ing)
+        RecipeIngredient.create(ing) if ing[:ingredient_id]
       end
     end
     # Create a new cookbook and attach recipe if requested
