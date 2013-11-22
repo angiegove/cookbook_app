@@ -35,10 +35,10 @@
 </div>
 
 <div class="about_section" >
-  <h1>About </h1>
-  <h2>Sign up </h2>
-  <h2>Contact Us </h2>
-    <p>Get started by creating your FREE account. As an Edible Love member, you can: Create, save and send professional PDF cookbooks. Add recipes to your saved books, upload your own recipes, share with family and friends and much more!
+  <%= link_to('About', about_path, :class => "about") %>
+  <%= link_to('Sign up', new_user_path) %>
+  <%= link_to('Contact us', contact_path) %>
+  <p>Get started by creating your FREE account. As an Edible Love member, you can: Create, save and send professional PDF cookbooks. Add recipes to your saved books, upload your own recipes, share with family and friends and much more!
 </p>
 </div>
 
