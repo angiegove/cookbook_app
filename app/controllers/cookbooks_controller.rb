@@ -17,7 +17,7 @@ class CookbooksController < ApplicationController
     @cookbook= Cookbook.new params[:cookbook]
     @cookbook.user = @current_user
     @cookbook.save
-    redirect_to root_path
+    redirect_to cookbooks_path
   end
 
   def show
