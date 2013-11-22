@@ -48,11 +48,13 @@ class RecipesController < ApplicationController
   def update
     recipe = Recipe.find params[:id]
     recipe.update_attributes params[:recipe]
-    if params[:new_recipe_ingredients].present?
+    if params[:recipe_ingredients].present?
       params[:recipe_ingredients].each do |id, ing|
         recipe_ingredient = RecipeIngredient.find id
         recipe_ingredient.update_attributes(ing)
       end
+    end
+    if params[:new_recipe_ingredients].present?
       params[:new_recipe_ingredients].each do |id, ing|
         ing['recipe_id'] = recipe.id
         RecipeIngredient.create(ing) if ing[:ingredient_id]
@@ -65,6 +67,8 @@ class RecipesController < ApplicationController
         new_cookbook.recipes << recipe
       end
     end
+    recipe.cookbook_ids = params[:cookbook_ids]
+    recipe.save
     redirect_to recipe_path(recipe.id)
   end
 

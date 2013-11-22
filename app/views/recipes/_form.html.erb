@@ -118,7 +118,7 @@
           <% next if cookbook.title == "All of my receipes" %>
             <div class="checkbox">
               <label>
-                <%= check_box_tag "cookbook[]", cookbook.id, cookbook.id.in?(@recipe.cookbook_ids) %><%= cookbook.title %>
+                <%= check_box_tag "cookbook_ids[]", cookbook.id, cookbook.id.in?(@recipe.cookbook_ids) %><%= cookbook.title %>
               </label>
             </div>
           <% end %>
